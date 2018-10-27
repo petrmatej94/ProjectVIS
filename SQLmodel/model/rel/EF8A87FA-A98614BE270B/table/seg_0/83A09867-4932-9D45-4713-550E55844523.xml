@@ -1,0 +1,154 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="83A09867-4932-9D45-4713-550E55844523" name="Record">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:00:36 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="36814316-6B48-16D2-C1A6-FA48201FAA53">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:00:47 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ammount" id="409AC55F-839B-042D-3D49-A8C4713CD134">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:01:04 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PointsTaken" id="B1BF6F1C-564B-AAB9-8F5B-D0A197259620">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:01:04 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DateOfEntry" id="43A7BA16-6431-40B0-048B-DB1D4671D12E">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:01:29 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ExpireDate" id="081BD331-6F04-F734-CDBB-4F67C3FB24C5">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:01:46 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PaidDate" id="095BF39F-78AE-30AE-8A38-1386CE8150F3">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:01:46 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="driverID" id="7677ECD3-9854-8A06-2323-DAE4533D089D">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:02:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6139FCFB-6520-E0EB-8ED5-E250010D8373" referredColumn="A614DF5B-E412-E6EF-B022-19EE06CC231C"/>
+</associations>
+</Column>
+<Column name="employeeID" id="E94E780D-7FFD-486F-DFC6-9C7F0F7B095E">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:02:19 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9E9C5CB0-2F56-097C-ADB0-6F2B2E37E6FD" referredColumn="F4E7C7D0-16C0-E9C6-2D66-AB98B428FAAC"/>
+</associations>
+</Column>
+<Column name="fineTypeID" id="204EDD4B-2883-DB30-785A-1AD40B27D846">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:02:19 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="17AEC483-583D-E6F2-5784-2DDCDDF093CF" referredColumn="AD0C8EEE-F4BC-9D20-49EF-4D16B1F3C439"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="76171160-A5BE-162F-5B8B-3BAC5D43B660" name="Record_PK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:00:47 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="36814316-6B48-16D2-C1A6-FA48201FAA53"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="56DE2838-6CE1-B500-CC15-D2F6F8B12C5F" name="Record_Driver_FK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:03:11 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7677ECD3-9854-8A06-2323-DAE4533D089D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9425CA3E-7682-7371-427A-A55ED0528468" name="Record_Employee_FK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:03:21 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E94E780D-7FFD-486F-DFC6-9C7F0F7B095E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="333D75F1-4E9C-E285-201A-D3FC174C3C3C" name="Record_FineType_FK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:03:41 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="204EDD4B-2883-DB30-785A-1AD40B27D846"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,15 @@
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\bin\Debug\ProjectVIS.exe.config
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\bin\Debug\ProjectVIS.exe
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\bin\Debug\ProjectVIS.pdb
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.csprojAssemblyReference.cache
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.Program.FormMain.resources
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.Program.Forms.DetailRidiceForm.resources
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.Program.Forms.DriverProfile.resources
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.Program.Forms.EmployeeInterfaceForm.resources
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.Program.Forms.LoginForm.resources
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.Program.Forms.NewRecordForm.resources
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.Properties.Resources.resources
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.csproj.GenerateResource.cache
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.csproj.CoreCompileInputs.cache
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.exe
+C:\Users\TEMP.VSB\Desktop\School-Projects-master\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.pdb

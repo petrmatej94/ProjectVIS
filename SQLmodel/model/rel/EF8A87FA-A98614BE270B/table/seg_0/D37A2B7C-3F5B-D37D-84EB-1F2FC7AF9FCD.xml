@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D37A2B7C-3F5B-D37D-84EB-1F2FC7AF9FCD" name="DriversGroups">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:51:15 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="driverID" id="65C83A17-2305-569C-A4BC-E73A89E1F7F4">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:51:41 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="78AE2A2C-515B-625F-272D-D2893DE57B35" referredColumn="A614DF5B-E412-E6EF-B022-19EE06CC231C"/>
+</associations>
+</Column>
+<Column name="groupID" id="037996AE-DCE4-B626-2F65-189EFFD55E21">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:52:01 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0BEC471E-DF8D-F4FB-2795-002D09BDAEE9" referredColumn="31DF1B43-2B88-AE3F-13EC-46C2FB0D2BC6"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="365BF3A1-4C68-8072-4BBE-DEA77CA3CADA" name="DriversGroups_PK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:51:44 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="65C83A17-2305-569C-A4BC-E73A89E1F7F4"/>
+<colUsage columnID="037996AE-DCE4-B626-2F65-189EFFD55E21"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5E8FF0E0-4D69-7579-C7AB-B9D4D33EAF55" name="DriversGroups_Driver_FK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:52:34 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="65C83A17-2305-569C-A4BC-E73A89E1F7F4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="49C16F1E-1919-777A-1614-94646E454FB9" name="DriversGroups_LicenseGroup_FK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:52:50 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="037996AE-DCE4-B626-2F65-189EFFD55E21"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,135 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="366937A5-7C72-F6DA-34B1-44C555EB40EE" name="Vehicle">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:43:04 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="78B7701D-AC42-BF97-761C-009D5424AEC7">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:43:31 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VIN" id="74E5F552-F9E4-813E-70EC-664E5A36D49A">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:43:31 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SPZ" id="1DBC9652-A6B5-F38C-DC25-A99BB9E58B9F">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:44:05 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Brand" id="85D73699-07F6-FFBA-0C24-D41182B310A7">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:44:05 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Model" id="B92BEA7D-F84B-61B3-EDB3-BD0A9531CDBC">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:44:05 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Type" id="21EC5524-A951-27BD-6152-EA36080E74C1">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:44:05 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Color" id="FFD8DE8B-07C1-4F1A-B8E4-6AA14D2E7292">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:44:44 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="driverID" id="E43698DE-0DE4-8B31-12BF-B2F7ED40C771">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:45:30 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E5C1BB09-E286-ACB0-6DEB-11D8921E186F" referredColumn="A614DF5B-E412-E6EF-B022-19EE06CC231C"/>
+</associations>
+</Column>
+<Column name="State" id="47F75290-104D-9DD2-DFB5-7D19A16E940D">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:45:30 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="22A0440B-1EC3-773D-A9F1-5EF6B85BC199" name="Vehicle_PK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:43:31 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="78B7701D-AC42-BF97-761C-009D5424AEC7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B68F3D33-BA88-CCE9-2EAA-4B4EFE20144B" name="Vehicle_Driver_FK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:47:34 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E43698DE-0DE4-8B31-12BF-B2F7ED40C771"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

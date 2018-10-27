@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0C6880EE-AB73-9F9A-575F-E3543B1B236C" name="Employee">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:58:27 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="F4E7C7D0-16C0-E9C6-2D66-AB98B428FAAC">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:58:43 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="DB083B0E-F49C-08CD-5D93-61DEBF525249">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:58:54 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Rank" id="4F8A5403-EEC3-8E4A-5F00-F9C091672269">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:59:05 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="officeID" id="40DC83A2-6BD0-0A08-3981-8CD3B162EC59">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:59:23 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8E6281CF-4316-F869-1C75-0BF526BFEAE3" referredColumn="254D0997-3F89-A364-45D9-085306C40F95"/>
+</associations>
+</Column>
+<Column name="State" id="DED5F80E-1499-6348-AFC5-099872F6F513">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:59:31 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Password" id="BCDDCCFC-B687-F84B-DC18-62880C393A29">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:59:45 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EDD91BF8-E5A7-1F56-C7C4-6C82C4D7DBE4" name="Employee_PK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:58:43 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F4E7C7D0-16C0-E9C6-2D66-AB98B428FAAC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EAE69459-1C13-7C8F-5EBA-132216F87474" name="Employee_Office_FK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 18:00:21 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="40DC83A2-6BD0-0A08-3981-8CD3B162EC59"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

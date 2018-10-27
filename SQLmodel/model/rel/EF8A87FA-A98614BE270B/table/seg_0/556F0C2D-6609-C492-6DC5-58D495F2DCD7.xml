@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="556F0C2D-6609-C492-6DC5-58D495F2DCD7" name="LicenseGroup">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:49:27 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="31DF1B43-2B88-AE3F-13EC-46C2FB0D2BC6">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:50:02 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Group" id="CBF7ABFE-4F34-DB2B-C73F-7593B4710CCF">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:50:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Description" id="079D6D15-E605-967A-812F-413BC242CDDF">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:50:29 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C660A189-5709-A874-D747-AB47540B894A" name="LicenseGroup_PK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-10-20 17:50:02 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="31DF1B43-2B88-AE3F-13EC-46C2FB0D2BC6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
