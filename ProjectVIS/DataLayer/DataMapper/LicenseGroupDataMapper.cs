@@ -11,9 +11,38 @@ namespace ProjectVIS.DataLayer.DataMapper
     public class LicenseGroupDataMapper
     {
 
+        public static String SQL_SELECT_ID = "SELECT * FROM LicenseGroup WHERE ID=@id";
 
 
-        private LicenseGroup Map(SqlDataReader reader)
+        public static List<LicenseGroup> FindAllByID(int id)
+        {
+            List<LicenseGroup> list = null;
+
+            using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(SQL_SELECT_ID, connection);
+                command.Parameters.AddWithValue("@ID", id);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    list = new List<LicenseGroup>();
+                    while (reader.Read())
+                    {
+                        list.Add(Map(reader));
+                    }
+                }
+            }
+
+            return list;
+        }
+
+
+
+
+        private static LicenseGroup Map(SqlDataReader reader)
         {
             int i = 0;
             LicenseGroup obj = new LicenseGroup();

@@ -33,5 +33,11 @@ namespace ProjectVIS.Program
         {
             this.Close();
         }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            LoginForm form = new LoginForm();
+            form.Show();
+        }
     }
 }

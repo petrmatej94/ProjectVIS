@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2E0E121A-FDDB-F94A-DDC6-F9A580D8AD68" name="LicenseGroup">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>556F0C2D-6609-C492-6DC5-58D495F2DCD7</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="DDC80E36-DD05-A712-E54E-CB7A79B7119E">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>31DF1B43-2B88-AE3F-13EC-46C2FB0D2BC6</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Group" id="C3FBA68E-897B-F8A3-399E-2B2C574F403D">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>CBF7ABFE-4F34-DB2B-C73F-7593B4710CCF</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Description" id="092EB2DA-200F-2A91-36EA-4F07D314B1B8">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>079D6D15-E605-967A-812F-413BC242CDDF</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID1" id="F8353949-B23A-A7F0-B07F-645B82574B0E">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:07:57 UTC</createdTime>
+<generatorID>2C9605AA-18A8-A4AB-9A02-FD2CB133C467</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<referedAttribute>15B3C15C-1F7D-ACCB-CC9F-7B12AEC06BC0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F09F1476-04A2-7961-F348-A50CA2B465A4" name="LicenseGroup PK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>C660A189-5709-A874-D747-AB47540B894A</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>DDC80E36-DD05-A712-E54E-CB7A79B7119E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

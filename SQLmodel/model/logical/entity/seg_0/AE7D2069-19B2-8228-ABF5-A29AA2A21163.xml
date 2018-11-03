@@ -1,0 +1,155 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AE7D2069-19B2-8228-ABF5-A29AA2A21163" name="Record">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>83A09867-4932-9D45-4713-550E55844523</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="5163A7AC-0B3B-E6E7-ABC9-214F012D64CA">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>36814316-6B48-16D2-C1A6-FA48201FAA53</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Ammount" id="330A42B4-5BCD-17D1-272F-831611BE7DED">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>409AC55F-839B-042D-3D49-A8C4713CD134</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PointsTaken" id="CE14BDF4-140B-3D73-E548-AE82EC958C7B">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>B1BF6F1C-564B-AAB9-8F5B-D0A197259620</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DateOfEntry" id="DA590BF7-055D-1D46-E70B-F31AE7BECAC4">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>43A7BA16-6431-40B0-048B-DB1D4671D12E</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ExpireDate" id="9E9A90DF-586F-A5E3-4ABD-A66056BE13D3">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>081BD331-6F04-F734-CDBB-4F67C3FB24C5</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PaidDate" id="8003EA3D-2CD4-8EEC-254A-FA4834687403">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>095BF39F-78AE-30AE-8A38-1386CE8150F3</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID1" id="9FC0FB3A-3744-3D74-426A-7B8A29619FF0">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:07:30 UTC</createdTime>
+<generatorID>160C8B88-E962-3EB4-7096-713B94B46736</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<referedAttribute>15B3C15C-1F7D-ACCB-CC9F-7B12AEC06BC0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID2" id="4EB1A081-4679-EDF8-16B7-F9EF0609A239">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:08:14 UTC</createdTime>
+<generatorID>24035E6D-12BB-0A94-5BDD-2615FD63D708</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<referedAttribute>7BA27220-ED65-45B9-4856-EC8F19120324</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID3" id="397A8829-B64B-34C5-3C45-CF6BABAA35DC">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:08:19 UTC</createdTime>
+<generatorID>C975537D-4ADD-48DC-35F7-4AE60133153E</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<referedAttribute>69B1DC06-351A-9A20-5DA0-F50988CD9A50</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2DEC4FD2-24A4-656C-0F12-0ADC2F054755" name="Record PK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>76171160-A5BE-162F-5B8B-3BAC5D43B660</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5163A7AC-0B3B-E6E7-ABC9-214F012D64CA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,130 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="58BA0E44-9D03-5C46-4380-E0D66B57139B" name="FineType">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>54ACC6BC-1CE0-32E4-4DE2-F6E2715C42B6</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="69B1DC06-351A-9A20-5DA0-F50988CD9A50">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>AD0C8EEE-F4BC-9D20-49EF-4D16B1F3C439</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Category" id="91EA81B9-5017-D41D-B81E-DA9B1B9B9CD7">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>CA61F19F-C9D2-4C43-8084-22091BB7643A</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Description" id="9EAD45F8-249C-B571-BFAB-B50AAED0E3DC">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>18F5FD13-8E29-B6C0-9EBD-8160CF790DC2</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<ownDataTypeParameters>1000,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="MaxFine" id="C52CB77D-3B58-9816-44F6-2CA4C399B783">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>B820A856-3483-C2E2-31F8-743F63F457C3</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PointsPenalty" id="5ECC1917-114F-32B9-BED8-00113DC94A0D">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>F256043F-C312-41D8-DC5E-438E2A647179</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="State" id="92C980FC-B4BC-1F1E-294B-75AC5716EC57">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>6F14E3B2-F04B-869A-CD7B-64A87C2339CA</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID1" id="20AB9289-15A5-F195-6918-C76ABDEBDFC5">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:08:17 UTC</createdTime>
+<generatorID>C975537D-4ADD-48DC-35F7-4AE60133153E</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<referedAttribute>5163A7AC-0B3B-E6E7-ABC9-214F012D64CA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="5400ED1D-45D1-5243-0E9B-11F73AE02DE2" name="FineType PK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>38FE5EBE-3BBB-4B6A-40EC-728A90E6195B</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>69B1DC06-351A-9A20-5DA0-F50988CD9A50</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

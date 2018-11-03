@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.výpisŘidičůToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LoginButton = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -38,7 +38,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.výpisŘidičůToolStripMenuItem,
+            this.LoginButton,
             this.aboutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -47,11 +47,12 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // výpisŘidičůToolStripMenuItem
+            // LoginButton
             // 
-            this.výpisŘidičůToolStripMenuItem.Name = "výpisŘidičůToolStripMenuItem";
-            this.výpisŘidičůToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.výpisŘidičůToolStripMenuItem.Text = "Výpis řidičů";
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(49, 20);
+            this.LoginButton.Text = "Login";
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -86,7 +87,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem výpisŘidičůToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LoginButton;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }

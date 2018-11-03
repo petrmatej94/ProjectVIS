@@ -64,65 +64,79 @@
     <Compile Include="DomainLayer\DomainModel\Record.cs" />
     <Compile Include="DomainLayer\DomainModel\FineType.cs" />
     <Compile Include="DomainLayer\DomainModel\Vehicle.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="PresentationLayer\DesktopApp\DriverRecordsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="PresentationLayer\DesktopApp\DriverRecordsForm.Designer.cs">
+      <DependentUpon>DriverRecordsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyDatabase.cs" />
+    <Compile Include="PresentationLayer\DesktopApp\DriverVehiclesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\DesktopApp\DriverVehiclesForm.Designer.cs">
+      <DependentUpon>DriverVehiclesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\DesktopApp\PaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\DesktopApp\PaymentForm.Designer.cs">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program\Forms\DetailRidiceForm.cs" />
-    <Compile Include="Program\Forms\DetailRidiceForm.Designer.cs">
-      <DependentUpon>DetailRidiceForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program\Forms\DriverProfile.cs">
+    <Compile Include="PresentationLayer\DesktopApp\DriverProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Program\Forms\DriverProfile.Designer.cs">
+    <Compile Include="PresentationLayer\DesktopApp\DriverProfile.Designer.cs">
       <DependentUpon>DriverProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program\Forms\EmployeeInterfaceForm.cs">
+    <Compile Include="PresentationLayer\DesktopApp\EmployeeInterfaceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Program\Forms\EmployeeInterfaceForm.Designer.cs">
+    <Compile Include="PresentationLayer\DesktopApp\EmployeeInterfaceForm.Designer.cs">
       <DependentUpon>EmployeeInterfaceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program\Forms\LoginForm.cs">
+    <Compile Include="PresentationLayer\DesktopApp\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Program\Forms\LoginForm.Designer.cs">
+    <Compile Include="PresentationLayer\DesktopApp\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program\Forms\NewRecordForm.cs">
+    <Compile Include="PresentationLayer\DesktopApp\NewRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Program\Forms\NewRecordForm.Designer.cs">
+    <Compile Include="PresentationLayer\DesktopApp\NewRecordForm.Designer.cs">
       <DependentUpon>NewRecordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program\LoginManager.cs" />
     <Compile Include="Program\Starter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PresentationLayer\DesktopApp\DriverRecordsForm.resx">
+      <DependentUpon>DriverRecordsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\DesktopApp\DriverVehiclesForm.resx">
+      <DependentUpon>DriverVehiclesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\DesktopApp\PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Program\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Program\Forms\DetailRidiceForm.resx">
-      <DependentUpon>DetailRidiceForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Program\Forms\DriverProfile.resx">
+    <EmbeddedResource Include="PresentationLayer\DesktopApp\DriverProfile.resx">
       <DependentUpon>DriverProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Program\Forms\EmployeeInterfaceForm.resx">
+    <EmbeddedResource Include="PresentationLayer\DesktopApp\EmployeeInterfaceForm.resx">
       <DependentUpon>EmployeeInterfaceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Program\Forms\LoginForm.resx">
+    <EmbeddedResource Include="PresentationLayer\DesktopApp\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Program\Forms\NewRecordForm.resx">
+    <EmbeddedResource Include="PresentationLayer\DesktopApp\NewRecordForm.resx">
       <DependentUpon>NewRecordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

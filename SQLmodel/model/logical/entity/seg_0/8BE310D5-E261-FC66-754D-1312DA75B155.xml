@@ -1,0 +1,132 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8BE310D5-E261-FC66-754D-1312DA75B155" name="Office">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>54CD479E-A04D-6572-9CB3-A7D61C311204</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="A8FD1F63-7448-F5E8-7508-8EDE7DF1DE9E">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>254D0997-3F89-A364-45D9-085306C40F95</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Street" id="D457E46F-D250-B1CC-E777-CA15E79B94AC">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>B46E048F-4ED0-2F1A-FBA7-7AC68F55CB72</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Town" id="7B0A9118-8310-DC50-D012-194AC4DB5E81">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>2C47E59A-CCF7-8775-011D-E10E947F291F</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Country" id="4A8A2817-6C72-513F-441E-C904242D67F0">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>ECD8CFDB-430F-F87B-1E36-F4703EC3793F</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Type" id="D68B4FDD-8819-F272-D7B1-9743D664E56B">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>96D045C1-0DC4-8190-711C-EB43E95A0D28</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="State" id="96C0959A-11C4-8839-E84E-F14F40675FBE">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>4B328966-DDED-D76B-5017-D50455C6D913</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID1" id="98FBF935-D431-D283-166F-512B2C2CDF85">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:08:21 UTC</createdTime>
+<generatorID>DF1DE1C9-64A4-BA06-6C83-583935D83994</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<referedAttribute>7BA27220-ED65-45B9-4856-EC8F19120324</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="74CE89C9-190F-5E1F-F8F1-6ACFCC43634E" name="Office PK">
+<createdBy>PMate</createdBy>
+<createdTime>2018-11-03 08:01:21 UTC</createdTime>
+<generatorID>174E8955-6E77-263C-3973-63EBE3BDFF17</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="EF8A87FA-AB11-C215-D834-A98614BE270B" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A8FD1F63-7448-F5E8-7508-8EDE7DF1DE9E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

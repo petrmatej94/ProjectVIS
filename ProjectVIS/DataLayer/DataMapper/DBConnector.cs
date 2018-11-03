@@ -14,7 +14,7 @@ namespace ProjectVIS.DataLayer.DataMapper
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = @"dbsys.cs.vsb.cz\STUDENT";
-            builder.UserID = "";   
+            builder.UserID = "mat0354";   
             builder.Password = "HsB6C0Vqo2";
             builder.InitialCatalog = "mat0354";
             return builder;

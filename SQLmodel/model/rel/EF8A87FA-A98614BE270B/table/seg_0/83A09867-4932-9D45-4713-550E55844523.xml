@@ -62,6 +62,7 @@
 <createdBy>PMate</createdBy>
 <createdTime>2018-10-20 18:01:46 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>

@@ -10,7 +10,7 @@ namespace ProjectVIS.DataLayer.DataMapper
 {
     public class EmployeeDataMapper
     {
-        public static String SQL_SELECT_ID = "SELECT * FROM Employee WHERE zID=@id";
+        public static String SQL_SELECT_ID = "SELECT * FROM Employee WHERE ID=@id";
 
 
         public Employee FindByID(int id)
@@ -43,8 +43,10 @@ namespace ProjectVIS.DataLayer.DataMapper
             int i = 0;
             Employee employee = new Employee();
             employee.ID = reader.GetInt32(i++);
+            employee.Name = reader.GetString(i++);
             employee.Rank = reader.GetString(i++);
             employee.officeID = reader.GetInt32(i++);
+            employee.State = reader.GetBoolean(i++);
             employee.Password = reader.GetString(i++);
 
 

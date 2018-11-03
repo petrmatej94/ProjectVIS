@@ -10,7 +10,53 @@ namespace ProjectVIS.DataLayer.DataMapper
 {
     public class FineTypeDataMapper
     {
+        public static String SQL_SELECT_ALL = "SELECT * FROM FineType";
+        private static String SQL_SELECT_ID = "SELECT * FROM FineType WHERE ID=@id";
 
+
+        public List<FineType> FindAll()
+        {
+            List<FineType> list = null;
+
+            using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(SQL_SELECT_ALL, connection);
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    list = new List<FineType>();
+                    while (reader.Read())
+                    {
+                        list.Add(Map(reader));
+                    }
+                }
+            }
+            
+            return list;
+        }
+
+        public FineType FindByID(int id)
+        {
+            FineType obj = null;
+
+            using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(SQL_SELECT_ID, connection);
+                command.Parameters.AddWithValue("@id", id);
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        obj = Map(reader);
+                    }
+                }
+            }
+            return obj;
+        }
 
 
 

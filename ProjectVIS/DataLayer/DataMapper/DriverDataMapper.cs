@@ -15,7 +15,7 @@ namespace ProjectVIS.DataLayer.DataMapper
         public static String SQL_SELECT_LICENSE = "SELECT * FROM Driver WHERE LicenseNumber=@number";
         public static String SQL_INSERT = "INSERT INTO Driver VALUES (@Name, @Street, @Town, @Country, @Residence, @BirthDate, "
                                         + "@RemainingPoints, @LicenseNumber, @LicenseValidity, @State, @Password);"
-                                        + "SELECT CAST(scope_identity() AS int;";
+                                        + "SELECT CAST(scope_identity() AS int);";
 
         public static String SQL_UPDATE = "UPDATE Driver SET Name=@Name, Street=@Street, Town=@Town, Country=@Country, "
                                 + "Residence=@Residence, BirthDate=@BirthDate, RemainingPoints=@RemainingPoints, "
@@ -121,7 +121,7 @@ namespace ProjectVIS.DataLayer.DataMapper
             return driverID;
         }
 
-        public static int Update(Driver obj)
+        public int Update(Driver obj)
         {
             int ret = 0;
 

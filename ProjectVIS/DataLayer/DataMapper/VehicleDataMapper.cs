@@ -11,7 +11,33 @@ namespace ProjectVIS.DataLayer.DataMapper
     public class VehicleDataMapper
     {
 
+        private static String SQL_SELECT_ID = "SELECT * FROM Vehicle WHERE driverID=@driverID";
 
+
+        public List<Vehicle> FindAllDriverVehicles(int driverID)
+        {
+            List<Vehicle> list = null;
+
+            using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(SQL_SELECT_ID, connection);
+                command.Parameters.AddWithValue("@driverID", driverID);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    list = new List<Vehicle>();
+                    while (reader.Read())
+                    {
+                        list.Add(Map(reader));
+                    }
+                }
+            }
+
+            return list;
+        }
 
 
 
