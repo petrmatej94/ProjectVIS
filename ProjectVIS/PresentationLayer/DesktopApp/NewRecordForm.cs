@@ -17,13 +17,11 @@ namespace ProjectVIS.Program.Forms
         private ErrorProvider errorProvider = new ErrorProvider();
         LoginManager manager;
         private int driverID;
-        FineTypeDataMapper fineMapper;
 
         public NewRecordForm(int id)
         {
             InitializeComponent();
             manager = LoginManager.Instance;
-            fineMapper = new FineTypeDataMapper();
             driverID = id;
             loadData();
         }
@@ -32,13 +30,13 @@ namespace ProjectVIS.Program.Forms
         {
             bool ret = false;
 
-            List<FineType> list = fineMapper.FindAll();
+            List<FineType> list = FineTypeDataMapper.FindAll();
             comboRecordCategory.DisplayMember = "Category";
             comboRecordCategory.ValueMember = "ID";
             comboRecordCategory.DataSource = list;
 
             //Vyplnit tabulku
-            FineType type = fineMapper.FindByID((int)comboRecordCategory.SelectedValue);
+            FineType type = FineTypeDataMapper.FindByID((int)comboRecordCategory.SelectedValue);
             boxRecordAmmount.Text = type.MaxFine.ToString();
             boxRecordPoints.Text = type.PointPenalty.ToString();
 
@@ -112,10 +110,9 @@ namespace ProjectVIS.Program.Forms
             if (record.PointsTaken > 0)
             {
                 //odebrat body ridici
-                DriverDataMapper driverMapper = new DriverDataMapper();
-                Driver driver = driverMapper.FindByID(record.driverID);
+                Driver driver = DriverDataMapper.FindByID(record.driverID);
                 driver.SubtractPoints(record.PointsTaken);
-                driverMapper.Save(driver);  //UPDATE
+                DriverDataMapper.Update(driver); 
 
                 
                 if (driver.PointsLessThenZero())
@@ -136,7 +133,7 @@ namespace ProjectVIS.Program.Forms
 
         private void comboRecordCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FineType type = fineMapper.FindByID((int)comboRecordCategory.SelectedValue);
+            FineType type = FineTypeDataMapper.FindByID((int)comboRecordCategory.SelectedValue);
             boxRecordAmmount.Text = type.MaxFine.ToString();
             boxRecordPoints.Text = type.PointPenalty.ToString();
         }

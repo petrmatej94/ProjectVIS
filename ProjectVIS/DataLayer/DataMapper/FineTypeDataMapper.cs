@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace ProjectVIS.DataLayer.DataMapper
 {
-    public class FineTypeDataMapper
+    public static class FineTypeDataMapper
     {
         public static String SQL_SELECT_ALL = "SELECT * FROM FineType";
         private static String SQL_SELECT_ID = "SELECT * FROM FineType WHERE ID=@id";
 
 
-        public List<FineType> FindAll()
+        public static List<FineType> FindAll()
         {
             List<FineType> list = null;
 
@@ -36,7 +36,7 @@ namespace ProjectVIS.DataLayer.DataMapper
             return list;
         }
 
-        public FineType FindByID(int id)
+        public static FineType FindByID(int id)
         {
             FineType obj = null;
 
@@ -60,7 +60,7 @@ namespace ProjectVIS.DataLayer.DataMapper
 
 
 
-        private FineType Map(SqlDataReader reader)
+        private static FineType Map(SqlDataReader reader)
         {
             int i = 0;
             FineType obj = new FineType();

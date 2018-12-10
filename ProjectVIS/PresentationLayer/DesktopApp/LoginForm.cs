@@ -42,10 +42,10 @@ namespace ProjectVIS.Program.Forms
             Employee employee = null;
             Driver driver = null;
 
-            driver = new DriverDataMapper().FindByLicenseNumber(login);
+            driver = DriverDataMapper.FindByLicenseNumber(login);
             if (driver == null)
             {
-                employee = new EmployeeDataMapper().FindByID(login);
+                employee = EmployeeDataMapper.FindByID(login);
             }
 
             if (driver != null)

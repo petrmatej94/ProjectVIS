@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectVIS.DataLayer.DataMapper
 {
-    public class LicenseGroupDataMapper
+    public static class LicenseGroupDataMapper
     {
 
         public static String SQL_SELECT_ID = "SELECT * FROM LicenseGroup WHERE ID=@id";

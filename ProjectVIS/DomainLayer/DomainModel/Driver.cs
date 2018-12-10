@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectVIS.DomainLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectVIS.Models
 {
-    public class Driver
+    public class Driver : IdentityField
     {
         public int ID { get; set; }
         public string Name { get; set; }

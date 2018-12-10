@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace ProjectVIS.DataLayer.DataMapper
 {
-    public class VehicleDataMapper
+    public static class VehicleDataMapper
     {
 
         private static String SQL_SELECT_ID = "SELECT * FROM Vehicle WHERE driverID=@driverID";
+        private static String SQL_SELECT_SPZ = "SELECT * FROM Vehicle WHERE SPZ=@SPZ";
 
 
-        public List<Vehicle> FindAllDriverVehicles(int driverID)
+        public static List<Vehicle> FindAllDriverVehicles(int driverID)
         {
             List<Vehicle> list = null;
 
@@ -39,9 +40,29 @@ namespace ProjectVIS.DataLayer.DataMapper
             return list;
         }
 
+        public static Vehicle FindBySPZ(string SPZ)
+        {
+            Vehicle vehicle = null;
 
+            using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
+            {
+                connection.Open();
 
-        private Vehicle Map(SqlDataReader reader)
+                SqlCommand command = new SqlCommand(SQL_SELECT_SPZ, connection);
+                command.Parameters.AddWithValue("@SPZ", SPZ);
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        vehicle = Map(reader);
+                    }
+                }
+            }
+            return vehicle;
+        }
+
+        private static Vehicle Map(SqlDataReader reader)
         {
             int i = 0;
             Vehicle obj = new Vehicle();

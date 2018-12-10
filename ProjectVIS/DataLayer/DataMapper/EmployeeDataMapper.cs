@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace ProjectVIS.DataLayer.DataMapper
 {
-    public class EmployeeDataMapper
+    public static class EmployeeDataMapper
     {
         public static String SQL_SELECT_ID = "SELECT * FROM Employee WHERE ID=@id";
 
 
-        public Employee FindByID(int id)
+        public static Employee FindByID(int id)
         {
             Employee employee = null;
 
@@ -38,7 +38,7 @@ namespace ProjectVIS.DataLayer.DataMapper
 
 
 
-        private Employee MapEmployee(SqlDataReader reader)
+        private static Employee MapEmployee(SqlDataReader reader)
         {
             int i = 0;
             Employee employee = new Employee();

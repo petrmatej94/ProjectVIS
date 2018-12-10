@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectVIS.DataLayer.DataMapper
 {
-    public class RecordDataMapper
+    public static class RecordDataMapper
     {
 
         public static String SQL_INSERT = "INSERT INTO Record VALUES " 
@@ -22,9 +22,10 @@ namespace ProjectVIS.DataLayer.DataMapper
             + "WHERE record.driverID = @ID ORDER BY DateOfEntry DESC";
 
         public static String SQL_UPDATE = "UPDATE Record SET PaidDate=@PaidDate WHERE ID=@ID";
+        public static String SQL_SELECT_ID = "SELECT * FROM Record WHERE ID=@id";
 
 
-        public List<Record> FindAllByID(int id)
+        public static List<Record> FindAllByID(int id)
         {
             List<Record> list = null;
 
@@ -49,7 +50,28 @@ namespace ProjectVIS.DataLayer.DataMapper
             return list;
         }
 
+        public static Record FindByID(int id)
+        {
+            Record record = null;
 
+            using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(SQL_SELECT_ID, connection);
+                command.Parameters.AddWithValue("@id", id);
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        record = Map(reader);
+                    }
+                }
+            }
+            return record;
+        }
+        
         public static int Save(Record record)
         {
             int recordID = -1;
@@ -102,7 +124,7 @@ namespace ProjectVIS.DataLayer.DataMapper
 
 
 
-        private Record Map(SqlDataReader reader)
+        private static Record Map(SqlDataReader reader)
         {
             int i = 0;
             Record record = new Record();
@@ -111,7 +133,14 @@ namespace ProjectVIS.DataLayer.DataMapper
             record.PointsTaken = reader.GetInt32(i++);
             record.DateOfEntry = reader.GetDateTime(i++);
             record.ExpireDate = reader.GetDateTime(i++);
-            record.PaidDate = reader.GetDateTime(i++);
+            try
+            {
+                record.PaidDate = reader.GetDateTime(i++);
+            }
+            catch
+            {
+                record.PaidDate = null;
+            }
             record.driverID = reader.GetInt32(i++);
             record.employeeID = reader.GetInt32(i++);
             record.fineTypeID = reader.GetInt32(i++);
@@ -121,7 +150,7 @@ namespace ProjectVIS.DataLayer.DataMapper
 
 
 
-        private Record MapCustom(SqlDataReader reader)
+        private static Record MapCustom(SqlDataReader reader)
         {
             int i = 0;
             Record record = new Record();

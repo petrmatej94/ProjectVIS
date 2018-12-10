@@ -20,8 +20,7 @@ namespace ProjectVIS.Program.Forms
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(SearchIDBox.Text);
-
-            //logika hledani atd
+            
             DriverProfile form = new DriverProfile(id);
             form.Show();
         }

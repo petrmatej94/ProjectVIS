@@ -28,7 +28,7 @@ namespace ProjectVIS.PresentationLayer.DesktopApp
 
         public void LoadData()
         {
-            List<Vehicle> list = new VehicleDataMapper().FindAllDriverVehicles(ID);
+            List<Vehicle> list = VehicleDataMapper.FindAllDriverVehicles(ID);
 
             if(list != null)
             {

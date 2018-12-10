@@ -43,7 +43,7 @@ namespace ProjectVIS.Program.Forms
 
         public bool OpenRecord(int number)
         {
-            driver = new DriverDataMapper().FindByLicenseNumber(number);
+            driver = DriverDataMapper.FindByLicenseNumber(number);
             LoadData();
 
             return true;

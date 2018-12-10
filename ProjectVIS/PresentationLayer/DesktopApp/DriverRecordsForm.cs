@@ -25,7 +25,7 @@ namespace ProjectVIS.PresentationLayer.DesktopApp
 
         public void LoadData()
         {
-            List<Record> list = new RecordDataMapper().FindAllByID(ID);
+            List<Record> list = RecordDataMapper.FindAllByID(ID);
 
             if(list != null)
             {

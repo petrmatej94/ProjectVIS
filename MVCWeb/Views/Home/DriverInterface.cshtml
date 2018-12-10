@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Driver Interface";
+}
+@model ProjectVIS.Models.Record
+
+<br />
+<br />
+<h2>Driver Interface</h2>
+
+<hr />
+
+@foreach (ProjectVIS.Models.Record rec in @ViewBag.recordsList)
+{
+    <p><strong>Record ID: @rec.ID</strong></p>
+    <p>Ammount: @rec.Ammount</p>
+    <p>Points Taken: @rec.PointsTaken</p>
+    @if (rec.PaidDate == null)
+    {
+        <p>Paid date:<strong> NOT PAID YET</strong></p>
+        <form asp-controller="Home" asp-action="Payment">
+            <input type="hidden" name="ID" value="@rec.ID" />
+            <button type="submit">Zaplatit</button>
+        </form>
+    }
+    else
+    {
+        <p>Paid date: @rec.PaidDate</p>
+    }
+    <hr />
+    <br />
+
+
+}

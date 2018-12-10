@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectVIS.DomainLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectVIS.Models
 {
-    public class FineType
+    public class FineType : IdentityField
     {
         public int ID { get; set; }
         public string Category { get; set; }

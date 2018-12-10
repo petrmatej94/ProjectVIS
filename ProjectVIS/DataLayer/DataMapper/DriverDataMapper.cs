@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectVIS.DataLayer.DataMapper
 {
-    public class DriverDataMapper
+    public static class DriverDataMapper
     {
         public static String SQL_SELECT_ALL = "SELECT * FROM Driver";
         public static String SQL_SELECT_ID = "SELECT * FROM Driver WHERE ID=@id";
@@ -21,10 +21,10 @@ namespace ProjectVIS.DataLayer.DataMapper
                                 + "Residence=@Residence, BirthDate=@BirthDate, RemainingPoints=@RemainingPoints, "
                                 + "LicenseNumber=@LicenseNumber, LicenseValidity=@LicenseValidity, State=@State, Password=@Password "
                                 + "WHERE ID=@id";
-       
 
 
-        public List<Driver> FindAll()
+
+        public static List<Driver> FindAll()
         {
             List<Driver> list = null;
 
@@ -47,10 +47,7 @@ namespace ProjectVIS.DataLayer.DataMapper
             return list;
         }
 
-
-
-
-        public Driver FindByID(int id)
+        public static Driver FindByID(int id)
         {
             Driver driver = null;
 
@@ -72,7 +69,7 @@ namespace ProjectVIS.DataLayer.DataMapper
             return driver;
         }
 
-        public Driver FindByLicenseNumber(int number)
+        public static Driver FindByLicenseNumber(int number)
         {
             Driver driver = null;
 
@@ -94,7 +91,7 @@ namespace ProjectVIS.DataLayer.DataMapper
             return driver;
         }
 
-        public int Save(Driver obj)
+        public static int Save(Driver obj)
         {
             int driverID = -1;
             using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
@@ -117,11 +114,10 @@ namespace ProjectVIS.DataLayer.DataMapper
                 
                 driverID = (int)command.ExecuteScalar();
             }
-
             return driverID;
         }
 
-        public int Update(Driver obj)
+        public static int Update(Driver obj)
         {
             int ret = 0;
 
@@ -149,7 +145,7 @@ namespace ProjectVIS.DataLayer.DataMapper
         }
 
         //not physicaly deleted, only state is changed to false = inactive driver
-        public int DeleteID(int id)
+        public static int DeleteID(int id)
         {
             int ret = 0;
 
@@ -167,7 +163,7 @@ namespace ProjectVIS.DataLayer.DataMapper
             return ret;
         }
 
-        private Driver MapDriver(SqlDataReader reader)
+        private static Driver MapDriver(SqlDataReader reader)
         {
             int i = 0;
             Driver driver = new Driver();
@@ -186,14 +182,5 @@ namespace ProjectVIS.DataLayer.DataMapper
 
             return driver;
         }
-
-
-
-
-        
-
-
-
-
     }
 }

@@ -64,6 +64,7 @@
     <Compile Include="DomainLayer\DomainModel\Record.cs" />
     <Compile Include="DomainLayer\DomainModel\FineType.cs" />
     <Compile Include="DomainLayer\DomainModel\Vehicle.cs" />
+    <Compile Include="DomainLayer\IdentityField.cs" />
     <Compile Include="PresentationLayer\DesktopApp\DriverRecordsForm.cs">
       <SubType>Form</SubType>
     </Compile>

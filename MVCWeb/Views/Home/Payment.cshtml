@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Payment";
+}
+@model ProjectVIS.Models.Record
+
+<br />
+<br />
+
+<h2>Payment</h2>
+
+
+@ViewBag.record.ID
+@ViewBag.record.Ammount
+
+
+<form asp-action="Pay" asp-controller="Home" method="post">
+    <input name="ID" id="ID" type="hidden" value="@ViewBag.record.ID" />
+
+    <label>Card Number</label>
+    <input id="number" type="number" name="number" placeholder="Enter card number" />
+
+    <br />
+
+    <label>CSV</label>
+    <input id="CSV" type="number" name="CSV" placeholder="Enter CSV" />
+
+    <br />
+
+    <span class="text-danger" asp-validation-for="Ammount"></span>
+
+
+    <button type="submit" formmethod="post">Odeslat</button>
+</form>
+

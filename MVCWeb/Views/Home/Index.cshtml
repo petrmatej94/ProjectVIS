@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<br />
+<br />
+
+<h1>Automaticke vytvoreni zaznamu</h1>
+
+<form asp-controller="Home" asp-action="AutomatickeVytvoreni" method="post">
+
+
+
+    <label>SPZ Vozidla</label>
+    <input name="SPZ" type="text" placeholder="Zadej SPZ vozidla" />
+
+    <br />
+
+    <label>Rychlost vozidla</label>
+    <input name="speed" type="text" placeholder="Zadej rychlost vozidla" />
+
+    <br />
+    <input type="checkbox" name="isInCity"> Is in City?<br>
+    <br />
+
+    <button type="submit">Automaticke vytvoreni zaznamu</button>
+</form>
+
+
+<br />
+<br />
+<br />
+
+<h1></h1>
