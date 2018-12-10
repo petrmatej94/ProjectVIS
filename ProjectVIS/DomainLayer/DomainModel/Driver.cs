@@ -30,5 +30,21 @@ namespace ProjectVIS.Models
             return ID + " " + Name + " " + Street + " " + Town + " " + Country + " " + Residence +
                    " " + BirthDate + " " + RemainingPoints + " " + LicenseNumber + " " + LicenseValidity + " " + State;
         }
+
+
+        public bool PointsLessThenZero()
+        {
+            return RemainingPoints <= 0 ? true : false;
+        }
+
+        public void SubtractPoints(int cnt)
+        {
+            this.RemainingPoints -= cnt;
+        }
+
+        public void ConfiscateLicense()
+        {
+            this.State = false;
+        }
     }
 }

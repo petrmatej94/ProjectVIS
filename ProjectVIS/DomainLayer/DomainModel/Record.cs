@@ -33,5 +33,10 @@ namespace ProjectVIS.Models
         {
             return ID + " " + Ammount + " " + PointsTaken + " " + DateOfEntry + " " + employeeID + " " + EmployeeName + " " + FineType;
         }
+
+        public void SetPaidDate(DateTime date)
+        {
+            this.PaidDate = date;
+        }
     }
 }

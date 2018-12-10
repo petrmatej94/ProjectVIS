@@ -64,7 +64,7 @@ namespace ProjectVIS.PresentationLayer.DesktopApp
             if (value < 4)
             {
                 //uspesna platba - pridat PaidDate do Record
-                record.PaidDate = DateTime.Now;
+                record.SetPaidDate(DateTime.Now);
                 RecordDataMapper.Update(record);
 
                 MessageBox.Show("Platba probehla v poradku", "Potvrzeni", MessageBoxButtons.OK);

@@ -114,10 +114,11 @@ namespace ProjectVIS.Program.Forms
                 //odebrat body ridici
                 DriverDataMapper driverMapper = new DriverDataMapper();
                 Driver driver = driverMapper.FindByID(record.driverID);
-                driver.RemainingPoints -= record.PointsTaken;
-                driverMapper.Save(driver);
+                driver.SubtractPoints(record.PointsTaken);
+                driverMapper.Save(driver);  //UPDATE
 
-                if(driver.RemainingPoints <= 0)
+                
+                if (driver.PointsLessThenZero())
                 {
                     string message = "Body ridice <= 0. Odebrat RP";
                     MessageBox.Show(message, "Upozornění", MessageBoxButtons.OK);
