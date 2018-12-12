@@ -1,10 +1,12 @@
-﻿using ProjectVIS.Models;
+﻿using Newtonsoft.Json;
+using ProjectVIS.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace ProjectVIS.DataLayer.DataMapper
 {
@@ -182,5 +184,280 @@ namespace ProjectVIS.DataLayer.DataMapper
 
             return driver;
         }
+
+
+
+
+
+
+        //XML PART
+
+        private static int freeID = 0;
+        private static string filePath;
+        private static XmlDocument xmlDoc;
+
+        public static bool LoadXMLDocument(string path)
+        {
+            filePath = path;
+            xmlDoc = new XmlDocument();
+            xmlDoc.Load(filePath);
+
+            XmlNode root = xmlDoc.DocumentElement;
+            XmlNode freeIDNode = root.SelectSingleNode("freeID");
+
+            freeID = Convert.ToInt32(freeIDNode.InnerText);
+
+            return true;
+        }
+
+        private static void XMLSaveDocument()
+        {
+            XmlNode root = xmlDoc.DocumentElement;
+            XmlNode freeIDNode = root.SelectSingleNode("freeID");
+            freeIDNode.InnerText = freeID.ToString();
+
+            xmlDoc.Save(filePath);
+        }
+
+        public static Driver XMLSelect(int ID)
+        {
+            Driver driver = new Driver();
+
+            XmlNode root = xmlDoc.DocumentElement;
+            XmlNodeList list = root.SelectNodes("Driver");
+
+            XmlNode objNode = null;
+
+            foreach (XmlNode node in list)
+            {
+                XmlNodeList childs = node.ChildNodes;
+
+                foreach (XmlNode child in childs)
+                {
+                    if (child.Name == "ID")
+                    {
+                        objNode = (child.InnerText == ID.ToString()) ? node : null;
+                        break;
+                    }
+                }
+
+                if (objNode != null)
+                {
+                    break;
+                }
+            }
+
+            if (objNode != null)
+            {
+                driver = XMLMap(objNode);
+            }
+
+            return driver;
+        }
+
+        public static bool XMLInsert(Driver driver)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(filePath);
+
+            XmlElement root = xmlDoc.DocumentElement;
+            XmlElement elem = xmlDoc.CreateElement("Driver");
+
+            XmlElement id = xmlDoc.CreateElement("ID");
+            id.InnerText = freeID.ToString();
+            driver.ID = freeID;
+            freeID = freeID + 1;
+            elem.AppendChild(id);
+
+            XmlElement Name = xmlDoc.CreateElement("Name");
+            Name.InnerText = driver.Name;
+            elem.AppendChild(Name);
+
+            XmlElement Street = xmlDoc.CreateElement("Street");
+            Street.InnerText = driver.Street;
+            elem.AppendChild(Street);
+
+            XmlElement Town = xmlDoc.CreateElement("Town");
+            Town.InnerText = driver.Town;
+            elem.AppendChild(Town);
+
+            XmlElement Country = xmlDoc.CreateElement("Country");
+            Country.InnerText = driver.Country;
+            elem.AppendChild(Country);
+
+            XmlElement Residence = xmlDoc.CreateElement("Residence");
+            Residence.InnerText = driver.Residence;
+            elem.AppendChild(Residence);
+
+            XmlElement BirthDate = xmlDoc.CreateElement("BirthDate");
+            BirthDate.InnerText = driver.BirthDate.ToString();
+            elem.AppendChild(BirthDate);
+
+            XmlElement RemainingPoints = xmlDoc.CreateElement("RemainingPoints");
+            RemainingPoints.InnerText = driver.RemainingPoints.ToString();
+            elem.AppendChild(RemainingPoints);
+
+            XmlElement LicenseNumber = xmlDoc.CreateElement("LicenseNumber");
+            LicenseNumber.InnerText = driver.LicenseNumber.ToString();
+            elem.AppendChild(LicenseNumber);
+
+            XmlElement LicenseValidity = xmlDoc.CreateElement("LicenseValidity");
+            LicenseValidity.InnerText = driver.LicenseValidity.ToString();
+            elem.AppendChild(LicenseValidity);
+
+            XmlElement State = xmlDoc.CreateElement("State");
+            State.InnerText = driver.State.ToString();
+            elem.AppendChild(State);
+
+            XmlElement Password = xmlDoc.CreateElement("Password");
+            Password.InnerText = driver.Password;
+            elem.AppendChild(Password);
+
+            
+            root.AppendChild(elem);
+            XMLSaveDocument();
+
+            return true;
+        }
+
+        public static bool XMLUpdate(Driver driver)
+        {
+            xmlDoc.Load(filePath);
+            XmlNode root = xmlDoc.DocumentElement;
+            XmlNodeList list = root.SelectNodes("Driver");
+
+            XmlNode driverNode = null;
+
+            foreach (XmlNode node in list)
+            {
+                XmlNodeList childs = node.ChildNodes;
+
+                foreach (XmlNode child in childs)
+                {
+                    if (child.Name == "ID") // && child.InnerText == driver.ID.ToString())
+                    {
+                        driverNode = (child.InnerText == driver.ID.ToString()) ? node : null;
+                        driverNode = node;
+                        break;
+                    }
+                }
+
+                if (driverNode != null)
+                    break;
+            }
+
+            foreach (XmlNode child in driverNode.ChildNodes)
+            {
+                if (child.Name == "Name")
+                {
+                    child.InnerText = driver.Name;
+                }
+                if (child.Name == "Street")
+                {
+                    child.InnerText = driver.Street;
+                }
+                if (child.Name == "Town")
+                {
+                    child.InnerText = driver.Town;
+                }
+                if (child.Name == "Country")
+                {
+                    child.InnerText = driver.Country;
+                }
+                if (child.Name == "Residence")
+                {
+                    child.InnerText = driver.Residence;
+                }
+                if (child.Name == "BirthDate")
+                {
+                    child.InnerText = driver.BirthDate.ToString();
+                }
+                if (child.Name == "RemainingPoints")
+                {
+                    child.InnerText = driver.RemainingPoints.ToString();
+                }
+                if (child.Name == "LicenseNumber")
+                {
+                    child.InnerText = driver.LicenseNumber.ToString();
+                }
+                if (child.Name == "LicenseValidity")
+                {
+                    child.InnerText = driver.LicenseValidity.ToString();
+                }
+                if (child.Name == "State")
+                {
+                    child.InnerText = driver.State.ToString();
+                }
+                if (child.Name == "Password")
+                {
+                    child.InnerText = driver.Password;
+                }
+            }
+
+            XMLSaveDocument();
+
+            return true;
+        }
+
+
+
+        public static Driver XMLMap(XmlNode node)
+        {
+            Driver driver = new Driver();
+
+            foreach (XmlNode child in node.ChildNodes)
+            {
+                if (child.Name == "ID")
+                {
+                    driver.ID = Convert.ToInt32(child.InnerText);
+                }
+                if (child.Name == "Name")
+                {
+                    driver.Name = child.InnerText;
+                }
+                if (child.Name == "Street")
+                {
+                    driver.Street = child.InnerText;
+                }
+                if (child.Name == "Town")
+                {
+                    driver.Town = child.InnerText;
+                }
+                if (child.Name == "Country")
+                {
+                    driver.Country = child.InnerText;
+                }
+                if (child.Name == "Residence")
+                {
+                    driver.Residence = child.InnerText;
+                }
+                if (child.Name == "BirthDate")
+                {
+                    driver.BirthDate = Convert.ToDateTime(child.InnerText);
+                }
+                if (child.Name == "RemainingPoints")
+                {
+                    driver.RemainingPoints = Convert.ToInt32(child.InnerText);
+                }
+                if (child.Name == "LicenseNumber")
+                {
+                    driver.LicenseNumber = Convert.ToInt32(child.InnerText);
+                }
+                if (child.Name == "LicenseValidity")
+                {
+                    driver.LicenseValidity = Convert.ToDateTime(child.InnerText);
+                }
+                if (child.Name == "State")
+                {
+                    driver.State = Convert.ToBoolean(child.InnerText);
+                }
+                if (child.Name == "Password")
+                {
+                    driver.Password = child.InnerText;
+                }
+            }
+            return driver;
+        }
+
     }
 }

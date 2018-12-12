@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace ProjectVIS.DataLayer.DataMapper
 {
@@ -172,6 +173,243 @@ namespace ProjectVIS.DataLayer.DataMapper
             record.FineType = reader.GetString(i++);
 
             return record;
+        }
+
+
+
+
+
+
+
+        // XML PART
+
+        private static int freeID = 0;
+        private static string filePath;
+        private static XmlDocument xmlDoc;
+
+        public static bool LoadXMLDocument(string path)
+        {
+            filePath = path;
+            xmlDoc = new XmlDocument();
+            xmlDoc.Load(filePath);
+
+            XmlNode root = xmlDoc.DocumentElement;
+            XmlNode freeIDNode = root.SelectSingleNode("freeID");
+
+            freeID = Convert.ToInt32(freeIDNode.InnerText);
+
+            return true;
+        }
+
+        private static void XMLSaveDocument()
+        {
+            XmlNode root = xmlDoc.DocumentElement;
+            XmlNode freeIDNode = root.SelectSingleNode("freeID");
+            freeIDNode.InnerText = freeID.ToString();
+
+            xmlDoc.Save(filePath);
+        }
+
+        public static Record XMLSelect(int ID)
+        {
+            Record obj = new Record();
+
+            XmlNode root = xmlDoc.DocumentElement;
+            XmlNodeList list = root.SelectNodes("Driver");
+
+            XmlNode objNode = null;
+
+            foreach (XmlNode node in list)
+            {
+                XmlNodeList childs = node.ChildNodes;
+
+                foreach (XmlNode child in childs)
+                {
+                    if (child.Name == "ID")
+                    {
+                        objNode = (child.InnerText == ID.ToString()) ? node : null;
+                        break;
+                    }
+                }
+
+                if (objNode != null)
+                {
+                    break;
+                }
+            }
+
+            if (objNode != null)
+            {
+                obj = XMLMap(objNode);
+            }
+
+            return obj;
+        }
+
+        public static bool XMLInsert(Record obj)
+        {
+            XmlElement root = xmlDoc.DocumentElement;
+            XmlElement elem = xmlDoc.CreateElement("Record");
+
+            XmlElement id = xmlDoc.CreateElement("ID");
+            id.InnerText = freeID.ToString();
+            obj.ID = freeID;
+            freeID = freeID + 1;
+            elem.AppendChild(id);
+
+            XmlElement Ammount = xmlDoc.CreateElement("Ammount");
+            Ammount.InnerText = obj.Ammount.ToString();
+            elem.AppendChild(Ammount);
+
+            XmlElement PointsTaken = xmlDoc.CreateElement("PointsTaken");
+            PointsTaken.InnerText = obj.PointsTaken.ToString();
+            elem.AppendChild(PointsTaken);
+
+            XmlElement DateOfEntry = xmlDoc.CreateElement("DateOfEntry");
+            DateOfEntry.InnerText = obj.DateOfEntry.ToString();
+            elem.AppendChild(DateOfEntry);
+
+            XmlElement ExpireDate = xmlDoc.CreateElement("ExpireDate");
+            ExpireDate.InnerText = obj.ExpireDate.ToString();
+            elem.AppendChild(ExpireDate);
+
+            XmlElement PaidDate = xmlDoc.CreateElement("PaidDate");
+            PaidDate.InnerText = obj.PaidDate.ToString();
+            elem.AppendChild(PaidDate);
+
+            XmlElement driverID = xmlDoc.CreateElement("driverID");
+            driverID.InnerText = obj.driverID.ToString();
+            elem.AppendChild(driverID);
+
+            XmlElement employeeID = xmlDoc.CreateElement("employeeID");
+            employeeID.InnerText = obj.employeeID.ToString();
+            elem.AppendChild(employeeID);
+
+            XmlElement fineTypeID = xmlDoc.CreateElement("fineTypeID");
+            fineTypeID.InnerText = obj.fineTypeID.ToString();
+            elem.AppendChild(fineTypeID);
+
+            root.AppendChild(elem);
+            XMLSaveDocument();
+
+            return true;
+        }
+
+        public static bool XMLUpdate(Record obj)
+        {
+            xmlDoc.Load(filePath);
+            XmlNode root = xmlDoc.DocumentElement;
+            XmlNodeList list = root.SelectNodes("Record");
+
+            XmlNode objNode = null;
+
+            foreach (XmlNode node in list)
+            {
+                XmlNodeList childs = node.ChildNodes;
+
+                foreach (XmlNode child in childs)
+                {
+                    if (child.Name == "ID" && child.InnerText == obj.ID.ToString())
+                    {
+                        objNode = node;
+                        Console.WriteLine(objNode.InnerXml);
+                        break;
+                    }
+                }
+
+                if (objNode != null)
+                    break;
+            }
+
+            foreach (XmlNode child in objNode.ChildNodes)
+            {
+                if (child.Name == "Ammount")
+                {
+                    child.InnerText = obj.Ammount.ToString();
+                }
+                if (child.Name == "PointsTaken")
+                {
+                    child.InnerText = obj.PointsTaken.ToString();
+                }
+                if (child.Name == "DateOfEntry")
+                {
+                    child.InnerText = obj.DateOfEntry.ToString();
+                }
+                if (child.Name == "ExpireDate")
+                {
+                    child.InnerText = obj.ExpireDate.ToString();
+                }
+                if (child.Name == "PaidDate")
+                {
+                    child.InnerText = obj.PaidDate.ToString();
+                }
+                if (child.Name == "driverID")
+                {
+                    child.InnerText = obj.driverID.ToString();
+                }
+                if (child.Name == "employeeID")
+                {
+                    child.InnerText = obj.employeeID.ToString();
+                }
+                if (child.Name == "fineTypeID")
+                {
+                    child.InnerText = obj.fineTypeID.ToString();
+                }
+                
+            }
+
+            XMLSaveDocument();
+
+            return true;
+        }
+
+
+
+        public static Record XMLMap(XmlNode node)
+        {
+            Record obj = new Record();
+
+            foreach (XmlNode child in node.ChildNodes)
+            {
+                if (child.Name == "ID")
+                {
+                    obj.ID = Convert.ToInt32(child.InnerText);
+                }
+                if (child.Name == "Ammount")
+                {
+                    obj.Ammount = Convert.ToInt32(child.InnerText);
+                }
+                if (child.Name == "PointsTaken")
+                {
+                    obj.PointsTaken = Convert.ToInt32(child.InnerText);
+                }
+                if (child.Name == "DateOfEntry")
+                {
+                    obj.DateOfEntry = Convert.ToDateTime(child.InnerText);
+                }
+                if (child.Name == "ExpireDate")
+                {
+                    obj.ExpireDate = Convert.ToDateTime(child.InnerText);
+                }
+                if (child.Name == "PaidDate")
+                {
+                    obj.PaidDate = Convert.ToDateTime(child.InnerText);
+                }
+                if (child.Name == "driverID")
+                {
+                    obj.driverID = Convert.ToInt32(child.InnerText);
+                }
+                if (child.Name == "employeeID")
+                {
+                    obj.employeeID = Convert.ToInt32(child.InnerText);
+                }
+                if (child.Name == "fineTypeID")
+                {
+                    obj.fineTypeID = Convert.ToInt32(child.InnerText);
+                }
+                
+            }
+            return obj;
         }
 
     }

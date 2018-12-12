@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Vehicles>
+  <freeID>0</freeID>
+  <Vehicle>
+    <ID>1</ID>
+    <Vin>qweqwe5qw4e</Vin>
+    <Spz>123456</Spz>
+    <Brand>Skoda</Brand>
+    <Model>Octavia</Model>
+    <Type>Skoda</Type>
+    <Color>Modra</Color>
+    <driverID>1</driverID>
+  </Vehicle>
+</Vehicles>

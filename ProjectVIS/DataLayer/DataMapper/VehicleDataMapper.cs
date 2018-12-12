@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace ProjectVIS.DataLayer.DataMapper
 {
@@ -77,6 +78,107 @@ namespace ProjectVIS.DataLayer.DataMapper
             obj.State = reader.GetBoolean(i++);
 
             return obj;
-        } 
+        }
+
+
+
+
+        // XML PART
+
+        private static int freeID = 0;
+        private static string filePath;
+        private static XmlDocument xmlDoc;
+
+        public static bool LoadXMLDocument(string path)
+        {
+            filePath = path;
+            xmlDoc = new XmlDocument();
+            xmlDoc.Load(filePath);
+
+            XmlNode root = xmlDoc.DocumentElement;
+            XmlNode freeIDNode = root.SelectSingleNode("freeID");
+
+            freeID = Convert.ToInt32(freeIDNode.InnerText);
+
+            return true;
+        }
+
+        public static Vehicle XMLSelect(string SPZ)
+        {
+            Vehicle obj = new Vehicle();
+
+            XmlNode root = xmlDoc.DocumentElement;
+            XmlNodeList list = root.SelectNodes("Vehicle");
+
+            XmlNode objNode = null;
+
+            foreach (XmlNode node in list)
+            {
+                XmlNodeList childs = node.ChildNodes;
+
+                foreach (XmlNode child in childs)
+                {
+                    if (child.Name == "SPZ")
+                    {
+                        objNode = (child.InnerText == SPZ.ToString()) ? node : null;
+                        break;
+                    }
+                }
+
+                if (objNode != null)
+                {
+                    break;
+                }
+            }
+
+            if (objNode != null)
+            {
+                obj = XMLMap(objNode);
+            }
+
+            return obj;
+        }
+
+        public static Vehicle XMLMap(XmlNode node)
+        {
+            Vehicle obj = new Vehicle();
+
+            foreach (XmlNode child in node.ChildNodes)
+            {
+                if (child.Name == "ID")
+                {
+                    obj.ID = Convert.ToInt32(child.InnerText);
+                }
+                if (child.Name == "Vin")
+                {
+                    obj.Vin = child.InnerText;
+                }
+                if (child.Name == "SPZ")
+                {
+                    obj.Spz = child.InnerText;
+                }
+                if (child.Name == "Brand")
+                {
+                    obj.Brand = child.InnerText;
+                }
+                if (child.Name == "Model")
+                {
+                    obj.Model = child.InnerText;
+                }
+                if (child.Name == "Type")
+                {
+                    obj.Type = child.InnerText;
+                }
+                if (child.Name == "Color")
+                {
+                    obj.Color = child.InnerText;
+                }
+                if (child.Name == "driverID")
+                {
+                    obj.driverID = Convert.ToInt32(child.InnerText);
+                }
+            }
+            return obj;
+        }
     }
 }

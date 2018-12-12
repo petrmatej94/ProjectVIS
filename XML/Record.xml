@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Records>
+  <freeID>3</freeID>
+  <Record>
+    <ID>1</ID>
+    <Ammount>2000</Ammount>
+    <PointsTaken>2</PointsTaken>
+    <DateOfEntry>12.12.2018 21:00:15</DateOfEntry>
+    <ExpireDate>11.01.2019 21:00:15</ExpireDate>
+    <PaidDate>
+    </PaidDate>
+    <driverID>0</driverID>
+    <employeeID>1</employeeID>
+    <fineTypeID>6</fineTypeID>
+  </Record>
+  <Record>
+    <ID>2</ID>
+    <Ammount>2000</Ammount>
+    <PointsTaken>2</PointsTaken>
+    <DateOfEntry>12.12.2018 21:00:23</DateOfEntry>
+    <ExpireDate>11.01.2019 21:00:23</ExpireDate>
+    <PaidDate>
+    </PaidDate>
+    <driverID>0</driverID>
+    <employeeID>1</employeeID>
+    <fineTypeID>6</fineTypeID>
+  </Record>
+</Records>

@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectVIS", "ProjectVIS\ProjectVIS.csproj", "{04177BE5-3528-4C91-BA7C-A802CE28493D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCWeb", "MVCWeb\MVCWeb.csproj", "{8ECE203D-2F61-48B1-ACEA-F0F30007F767}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCWeb", "MVCWeb\MVCWeb.csproj", "{8ECE203D-2F61-48B1-ACEA-F0F30007F767}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

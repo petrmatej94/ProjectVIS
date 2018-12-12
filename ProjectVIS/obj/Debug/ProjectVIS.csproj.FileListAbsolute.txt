@@ -47,3 +47,7 @@ C:\Users\PMate\OneDrive\Plocha\Škola\5. Semestr\git\ProjectVIS\ProjectVIS\obj\D
 C:\Users\PMate\OneDrive\Plocha\Škola\5. Semestr\git\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.exe
 C:\Users\PMate\OneDrive\Plocha\Škola\5. Semestr\git\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.pdb
 C:\Users\PMate\OneDrive\Plocha\Škola\5. Semestr\git\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.PresentationLayer.DesktopApp.PaymentForm.resources
+C:\Users\PMate\OneDrive\Plocha\Škola\5. Semestr\git\ProjectVIS\ProjectVIS\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PMate\OneDrive\Plocha\Škola\5. Semestr\git\ProjectVIS\ProjectVIS\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\PMate\OneDrive\Plocha\Škola\5. Semestr\git\ProjectVIS\ProjectVIS\bin\Debug\Newtonsoft.Json.xml
+C:\Users\PMate\OneDrive\Plocha\Škola\5. Semestr\git\ProjectVIS\ProjectVIS\obj\Debug\ProjectVIS.csproj.CopyComplete

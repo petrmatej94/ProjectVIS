@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FineTypes>
+  <freeID>0</freeID>
+  <FineType>
+    <ID>1</ID>
+    <Category>Rychlost</Category>
+    <Description>Prekroceni rychlosti</Description>
+    <MaxFine>10000</MaxFine>
+    <PointPenalty>2</PointPenalty>
+  </FineType>
+</FineTypes>

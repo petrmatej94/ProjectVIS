@@ -24,5 +24,7 @@ namespace ProjectVIS.Models
         {
             return ID + " " + Vin + " " + Spz + " " + Brand + " " + Model + " " + Type + " " + Color + " " + driverID + " " + State;
         }
+
+
     }
 }

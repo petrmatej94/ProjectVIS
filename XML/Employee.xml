@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Employees>
+  <freeID>0</freeID>
+  <Employee>
+    <ID>1</ID>
+    <Password>pass</Password>
+    <Name>Frantisek</Name>
+    <Rank>Dustojnik</Rank>
+  </Employee>
+</Employees>

@@ -88,7 +88,7 @@ Write(ViewBag.record.Ammount);
             WriteLiteral("\r\n\r\n\r\n");
             EndContext();
             BeginContext(169, 526, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d0096beee784be5a9b74614be0d7821", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9e7cd5736bac42a78b6d8d7a6c54acc6", async() => {
                 BeginContext(228, 44, true);
                 WriteLiteral("\r\n    <input name=\"ID\" id=\"ID\" type=\"hidden\"");
                 EndContext();
@@ -115,7 +115,7 @@ WriteAttributeValue("", 280, ViewBag.record.ID, 280, 18, false);
     ");
                 EndContext();
                 BeginContext(558, 62, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f866f5df0d41b488daacf5796c569d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "91b88e52b5c94fca9025fce7bd09a6be", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();

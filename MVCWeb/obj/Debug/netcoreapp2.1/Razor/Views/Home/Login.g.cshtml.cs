@@ -66,7 +66,7 @@ using MVCWeb.Models;
             WriteLiteral("\r\n<br />\r\n<br />\r\n<h2>Login</h2>\r\n\r\n");
             EndContext();
             BeginContext(112, 510, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f06c25f3191459aa8b68f9ab2b950d1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e27c75b389654b1696ef15128253fdc5", async() => {
                 BeginContext(173, 114, true);
                 WriteLiteral("\r\n\r\n    <label>Login</label>\r\n    <input id=\"login\" name=\"login\" type=\"number\" placeholder=\"Enter your login\" />\r\n");
                 EndContext();

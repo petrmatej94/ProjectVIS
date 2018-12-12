@@ -21,11 +21,6 @@ namespace ProjectVIS.Models
 
 
 
-        public Employee()
-        {
-
-        }
-
 
         public override string ToString()
         {

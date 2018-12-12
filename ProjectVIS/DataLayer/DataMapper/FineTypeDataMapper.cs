@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace ProjectVIS.DataLayer.DataMapper
 {
@@ -73,5 +74,96 @@ namespace ProjectVIS.DataLayer.DataMapper
 
             return obj;
         }
+
+
+
+
+        // XML PART
+
+        private static int freeID = 0;
+        private static string filePath;
+        private static XmlDocument xmlDoc;
+
+        public static bool LoadXMLDocument(string path)
+        {
+            filePath = path;
+            xmlDoc = new XmlDocument();
+            xmlDoc.Load(filePath);
+
+            XmlNode root = xmlDoc.DocumentElement;
+            XmlNode freeIDNode = root.SelectSingleNode("freeID");
+
+            freeID = Convert.ToInt32(freeIDNode.InnerText);
+
+            return true;
+        }
+
+        public static FineType XMLSelect(int ID)
+        {
+            FineType obj = new FineType();
+
+            XmlNode root = xmlDoc.DocumentElement;
+            XmlNodeList list = root.SelectNodes("FineType");
+
+            XmlNode objNode = null;
+
+            foreach (XmlNode node in list)
+            {
+                XmlNodeList childs = node.ChildNodes;
+
+                foreach (XmlNode child in childs)
+                {
+                    if (child.Name == "ID")
+                    {
+                        objNode = (child.InnerText == ID.ToString()) ? node : null;
+                        break;
+                    }
+                }
+
+                if (objNode != null)
+                {
+                    break;
+                }
+            }
+
+            if (objNode != null)
+            {
+                obj = XMLMap(objNode);
+            }
+
+            return obj;
+        }
+
+        public static FineType XMLMap(XmlNode node)
+        {
+            FineType obj = new FineType();
+
+            foreach (XmlNode child in node.ChildNodes)
+            {
+                if (child.Name == "ID")
+                {
+                    obj.ID = Convert.ToInt32(child.InnerText);
+                }
+                if (child.Name == "Category")
+                {
+                    obj.Category = child.InnerText;
+                }
+                if (child.Name == "Description")
+                {
+                    obj.Description = child.InnerText;
+                }
+                if (child.Name == "MaxFine")
+                {
+                    obj.MaxFine = Convert.ToInt32(child.InnerText);
+                }
+                if (child.Name == "PointPenalty")
+                {
+                    obj.PointPenalty = Convert.ToInt32(child.InnerText);
+                }
+            }
+            return obj;
+        }
     }
+
+
 }

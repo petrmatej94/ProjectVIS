@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Drivers>
+  <freeID>0</freeID>
+  <Driver>
+    <ID>1</ID>
+    <Name>
+    </Name>
+    <Town>
+    </Town>
+    <Street>
+    </Street>
+    <Country>
+    </Country>
+    <Residence>
+    </Residence>
+    <BirthDate>01.01.0001 0:00:00</BirthDate>
+    <RemainingPoints>-2</RemainingPoints>
+    <LicenseNumber>0</LicenseNumber>
+    <LicenseValidity>01.01.0001 0:00:00</LicenseValidity>
+    <State>False</State>
+    <Password>
+    </Password>
+  </Driver>
+</Drivers>
