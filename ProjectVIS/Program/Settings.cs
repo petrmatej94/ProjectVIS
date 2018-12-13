@@ -12,8 +12,8 @@ namespace ProjectVIS.DataLayer.Repository
 
         static Settings()
         {
-            DataProvider = DataProviderType.XmlFileStore;
-            //DataProvider = DataProviderType.SqlServer;
+            //DataProvider = DataProviderType.XmlFileStore;
+            DataProvider = DataProviderType.SqlServer;
         }
     }
 
