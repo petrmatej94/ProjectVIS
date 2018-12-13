@@ -59,6 +59,8 @@
     <Compile Include="DataLayer\DataMapper\FineTypeDataMapper.cs" />
     <Compile Include="DataLayer\DataMapper\VehicleDataMapper.cs" />
     <Compile Include="DataLayer\DataMapper\DBConnector.cs" />
+    <Compile Include="DataLayer\Repository\IRepository.cs" />
+    <Compile Include="Program\Settings.cs" />
     <Compile Include="DomainLayer\DomainModel\Driver.cs" />
     <Compile Include="DomainLayer\DomainModel\DriversLicenseGroups.cs" />
     <Compile Include="DomainLayer\DomainModel\LicenseGroup.cs" />

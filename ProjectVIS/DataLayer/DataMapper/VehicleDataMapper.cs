@@ -1,4 +1,5 @@
-﻿using ProjectVIS.Models;
+﻿using ProjectVIS.DataLayer.Repository;
+using ProjectVIS.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,6 +15,27 @@ namespace ProjectVIS.DataLayer.DataMapper
 
         private static String SQL_SELECT_ID = "SELECT * FROM Vehicle WHERE driverID=@driverID";
         private static String SQL_SELECT_SPZ = "SELECT * FROM Vehicle WHERE SPZ=@SPZ";
+
+        
+        private static int freeID = 0;
+        private static string filePath = "../XML/Vehicle.xml";
+        private static XmlDocument xmlDoc;
+
+        static VehicleDataMapper()
+        {
+            if (Settings.DataProvider == DataProviderType.XmlFileStore)
+            {
+                xmlDoc = new XmlDocument();
+                xmlDoc.Load(filePath);
+
+                XmlNode root = xmlDoc.DocumentElement;
+                XmlNode freeIDNode = root.SelectSingleNode("freeID");
+
+                freeID = Convert.ToInt32(freeIDNode.InnerText);
+            }
+        }
+
+
 
 
         public static List<Vehicle> FindAllDriverVehicles(int driverID)
@@ -43,24 +65,62 @@ namespace ProjectVIS.DataLayer.DataMapper
 
         public static Vehicle FindBySPZ(string SPZ)
         {
-            Vehicle vehicle = null;
-
-            using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
+            if(Settings.DataProvider == DataProviderType.SqlServer)
             {
-                connection.Open();
+                Vehicle vehicle = null;
 
-                SqlCommand command = new SqlCommand(SQL_SELECT_SPZ, connection);
-                command.Parameters.AddWithValue("@SPZ", SPZ);
-
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
                 {
-                    while (reader.Read())
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(SQL_SELECT_SPZ, connection);
+                    command.Parameters.AddWithValue("@SPZ", SPZ);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        vehicle = Map(reader);
+                        while (reader.Read())
+                        {
+                            vehicle = Map(reader);
+                        }
                     }
                 }
+                return vehicle;
             }
-            return vehicle;
+            else
+            {
+                Vehicle obj = new Vehicle();
+
+                XmlNode root = xmlDoc.DocumentElement;
+                XmlNodeList list = root.SelectNodes("Vehicle");
+
+                XmlNode objNode = null;
+
+                foreach (XmlNode node in list)
+                {
+                    XmlNodeList childs = node.ChildNodes;
+
+                    foreach (XmlNode child in childs)
+                    {
+                        if (child.Name == "Spz")
+                        {
+                            objNode = (child.InnerText == SPZ.ToString()) ? node : null;
+                            break;
+                        }
+                    }
+
+                    if (objNode != null)
+                    {
+                        break;
+                    }
+                }
+
+                if (objNode != null)
+                {
+                    obj = XMLMap(objNode);
+                }
+
+                return obj;
+            }
         }
 
         private static Vehicle Map(SqlDataReader reader)
@@ -81,64 +141,7 @@ namespace ProjectVIS.DataLayer.DataMapper
         }
 
 
-
-
-        // XML PART
-
-        private static int freeID = 0;
-        private static string filePath;
-        private static XmlDocument xmlDoc;
-
-        public static bool LoadXMLDocument(string path)
-        {
-            filePath = path;
-            xmlDoc = new XmlDocument();
-            xmlDoc.Load(filePath);
-
-            XmlNode root = xmlDoc.DocumentElement;
-            XmlNode freeIDNode = root.SelectSingleNode("freeID");
-
-            freeID = Convert.ToInt32(freeIDNode.InnerText);
-
-            return true;
-        }
-
-        public static Vehicle XMLSelect(string SPZ)
-        {
-            Vehicle obj = new Vehicle();
-
-            XmlNode root = xmlDoc.DocumentElement;
-            XmlNodeList list = root.SelectNodes("Vehicle");
-
-            XmlNode objNode = null;
-
-            foreach (XmlNode node in list)
-            {
-                XmlNodeList childs = node.ChildNodes;
-
-                foreach (XmlNode child in childs)
-                {
-                    if (child.Name == "SPZ")
-                    {
-                        objNode = (child.InnerText == SPZ.ToString()) ? node : null;
-                        break;
-                    }
-                }
-
-                if (objNode != null)
-                {
-                    break;
-                }
-            }
-
-            if (objNode != null)
-            {
-                obj = XMLMap(objNode);
-            }
-
-            return obj;
-        }
-
+        
         public static Vehicle XMLMap(XmlNode node)
         {
             Vehicle obj = new Vehicle();

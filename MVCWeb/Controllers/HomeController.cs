@@ -201,75 +201,70 @@ namespace MVCWeb.Controllers
 
 
 
-        [HttpPost]
-        public IActionResult AutomatickeVytvoreniXML(string SPZ, int speed, bool isInCity)
-        {
-            VehicleDataMapper.LoadXMLDocument("../XML/Vehicle.xml");
-            DriverDataMapper.LoadXMLDocument("../XML/Driver.xml");
-            RecordDataMapper.LoadXMLDocument("../XML/Record.xml");
+        //[HttpPost]
+        //public IActionResult AutomatickeVytvoreniXML(string SPZ, int speed, bool isInCity)
+        //{
+        //    Vehicle vehicle = VehicleDataMapper.FindBySPZ(SPZ);
+        //    if (vehicle == null) return RedirectToAction("Index", "Home");
+        //    Driver driver = DriverDataMapper.FindByID(vehicle.driverID);
+        //    if (driver == null) return RedirectToAction("Index", "Home");
+
+        //    Record record = new Record();
+        //    record.Ammount = 0;
+        //    record.DateOfEntry = DateTime.Now;
+        //    record.PaidDate = null;
+        //    record.ExpireDate = record.DateOfEntry.AddDays(30);
+        //    record.driverID = driver.ID;
+        //    record.PointsTaken = 0;
+        //    record.employeeID = 1;
+        //    record.fineTypeID = 6;
 
 
-            Vehicle vehicle = VehicleDataMapper.XMLSelect(SPZ);
-            if (vehicle == null) return RedirectToAction("Index", "Home");
-            Driver driver = DriverDataMapper.XMLSelect(vehicle.driverID);
-            if (driver == null) return RedirectToAction("Index", "Home");
-
-            Record record = new Record();
-            record.Ammount = 0;
-            record.DateOfEntry = DateTime.Now;
-            record.PaidDate = null;
-            record.ExpireDate = record.DateOfEntry.AddDays(30);
-            record.driverID = driver.ID;
-            record.PointsTaken = 0;
-            record.employeeID = 1;
-            record.fineTypeID = 6;
-
-
-            if (speed < 10 && isInCity == true)
-            {
-                record.Ammount = 500;
-                record.PointsTaken = 0;
-            }
-            else if (speed >= 10 && speed < 30 && isInCity == true)
-            {
-                record.Ammount = 2000;
-                record.PointsTaken = 1;
-            }
-            else if (speed >= 30 && isInCity == true)
-            {
-                record.Ammount = 5000;
-                record.PointsTaken = 3;
-            }
-            else if (speed < 10 && isInCity == false)
-            {
-                record.Ammount = 500;
-                record.PointsTaken = 0;
-            }
-            else if (speed >= 10 && speed < 30 && isInCity == false)
-            {
-                record.Ammount = 2000;
-                record.PointsTaken = 2;
-            }
-            else if (speed >= 30 && isInCity == false)
-            {
-                record.Ammount = 5000;
-                record.PointsTaken = 4;
-            }
+        //    if (speed < 10 && isInCity == true)
+        //    {
+        //        record.Ammount = 500;
+        //        record.PointsTaken = 0;
+        //    }
+        //    else if (speed >= 10 && speed < 30 && isInCity == true)
+        //    {
+        //        record.Ammount = 2000;
+        //        record.PointsTaken = 1;
+        //    }
+        //    else if (speed >= 30 && isInCity == true)
+        //    {
+        //        record.Ammount = 5000;
+        //        record.PointsTaken = 3;
+        //    }
+        //    else if (speed < 10 && isInCity == false)
+        //    {
+        //        record.Ammount = 500;
+        //        record.PointsTaken = 0;
+        //    }
+        //    else if (speed >= 10 && speed < 30 && isInCity == false)
+        //    {
+        //        record.Ammount = 2000;
+        //        record.PointsTaken = 2;
+        //    }
+        //    else if (speed >= 30 && isInCity == false)
+        //    {
+        //        record.Ammount = 5000;
+        //        record.PointsTaken = 4;
+        //    }
 
 
-            RecordDataMapper.XMLInsert(record);
+        //    RecordDataMapper.XMLInsert(record);
 
-            driver.RemainingPoints -= record.PointsTaken;
-            if (driver.RemainingPoints <= 0)
-            {
-                driver.State = false;
-                ViewBag.driverState = false;
-            }
+        //    driver.RemainingPoints -= record.PointsTaken;
+        //    if (driver.RemainingPoints <= 0)
+        //    {
+        //        driver.State = false;
+        //        ViewBag.driverState = false;
+        //    }
 
-            DriverDataMapper.XMLUpdate(driver);
+        //    DriverDataMapper.XMLUpdate(driver);
 
-            return RedirectToAction("Login", "Home");
-        }
+        //    return RedirectToAction("Login", "Home");
+        //}
 
 
 

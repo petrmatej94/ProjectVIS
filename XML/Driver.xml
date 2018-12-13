@@ -3,22 +3,22 @@
   <freeID>0</freeID>
   <Driver>
     <ID>1</ID>
-    <Name>
+    <Name>Petr Matej
     </Name>
-    <Town>
+    <Town>Paskov
     </Town>
-    <Street>
+    <Street>Ulice
     </Street>
-    <Country>
+    <Country>CR
     </Country>
-    <Residence>
+    <Residence>Ceske
     </Residence>
     <BirthDate>01.01.0001 0:00:00</BirthDate>
-    <RemainingPoints>-2</RemainingPoints>
+    <RemainingPoints>-12</RemainingPoints>
     <LicenseNumber>0</LicenseNumber>
     <LicenseValidity>01.01.0001 0:00:00</LicenseValidity>
     <State>False</State>
-    <Password>
+    <Password>pass
     </Password>
   </Driver>
 </Drivers>

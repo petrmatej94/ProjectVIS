@@ -1,4 +1,5 @@
-﻿using ProjectVIS.Models;
+﻿using ProjectVIS.DataLayer.Repository;
+using ProjectVIS.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,7 +12,6 @@ namespace ProjectVIS.DataLayer.DataMapper
 {
     public static class RecordDataMapper
     {
-
         public static String SQL_INSERT = "INSERT INTO Record VALUES " 
             + "(@Ammount, @PointsTaken, @DateOfEntry, @ExpireDate, @PaidDate, @driverID, @employeeID, @fineTypeID); " 
             + "SELECT CAST(scope_identity() AS int);";
@@ -24,6 +24,29 @@ namespace ProjectVIS.DataLayer.DataMapper
 
         public static String SQL_UPDATE = "UPDATE Record SET PaidDate=@PaidDate WHERE ID=@ID";
         public static String SQL_SELECT_ID = "SELECT * FROM Record WHERE ID=@id";
+
+
+
+
+        private static int freeID = 0;
+        private static string filePath = "../XML/Record.xml";
+        private static XmlDocument xmlDoc;
+
+        static RecordDataMapper()
+        {
+            if (Settings.DataProvider == DataProviderType.XmlFileStore)
+            {
+                xmlDoc = new XmlDocument();
+                xmlDoc.Load(filePath);
+
+                XmlNode root = xmlDoc.DocumentElement;
+                XmlNode freeIDNode = root.SelectSingleNode("freeID");
+
+                freeID = Convert.ToInt32(freeIDNode.InnerText);
+            }
+        }
+
+
 
 
         public static List<Record> FindAllByID(int id)
@@ -51,76 +74,239 @@ namespace ProjectVIS.DataLayer.DataMapper
             return list;
         }
 
+
         public static Record FindByID(int id)
         {
-            Record record = null;
-
-            using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
+            if(Settings.DataProvider == DataProviderType.SqlServer)
             {
-                connection.Open();
+                Record record = null;
 
-                SqlCommand command = new SqlCommand(SQL_SELECT_ID, connection);
-                command.Parameters.AddWithValue("@id", id);
-
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
                 {
-                    while (reader.Read())
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(SQL_SELECT_ID, connection);
+                    command.Parameters.AddWithValue("@id", id);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        record = Map(reader);
+                        while (reader.Read())
+                        {
+                            record = Map(reader);
+                        }
                     }
                 }
+                return record;
             }
-            return record;
+            else
+            {
+                Record obj = new Record();
+
+                XmlNode root = xmlDoc.DocumentElement;
+                XmlNodeList list = root.SelectNodes("Driver");
+
+                XmlNode objNode = null;
+
+                foreach (XmlNode node in list)
+                {
+                    XmlNodeList childs = node.ChildNodes;
+
+                    foreach (XmlNode child in childs)
+                    {
+                        if (child.Name == "ID")
+                        {
+                            objNode = (child.InnerText == id.ToString()) ? node : null;
+                            break;
+                        }
+                    }
+
+                    if (objNode != null)
+                    {
+                        break;
+                    }
+                }
+
+                if (objNode != null)
+                {
+                    obj = XMLMap(objNode);
+                }
+
+                return obj;
+            }
         }
         
-        public static int Save(Record record)
+        public static int Save(Record obj)
         {
-            int recordID = -1;
-            using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
+            if (Settings.DataProvider == DataProviderType.SqlServer)
             {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand(SQL_INSERT, connection))
+                int recordID = -1;
+                using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
                 {
-                    command.Parameters.AddWithValue("@Ammount", record.Ammount);
-                    command.Parameters.AddWithValue("@PointsTaken", record.PointsTaken);
-                    command.Parameters.AddWithValue("@DateOfEntry", record.DateOfEntry);
-                    command.Parameters.AddWithValue("@ExpireDate", record.ExpireDate);
-                    if(record.PaidDate == null)
-                    {
-                        command.Parameters.AddWithValue("@PaidDate", DBNull.Value);
-                    }
-                    else
-                    {
-                        command.Parameters.AddWithValue("@PaidDate", record.PaidDate);
-                    }
-                    command.Parameters.AddWithValue("@driverID", record.driverID);
-                    command.Parameters.AddWithValue("@employeeID", record.employeeID);
-                    command.Parameters.AddWithValue("@fineTypeID", record.fineTypeID);
-                    recordID = (int)command.ExecuteScalar();
-                }
-            }
+                    connection.Open();
 
-            return recordID;
+                    using (SqlCommand command = new SqlCommand(SQL_INSERT, connection))
+                    {
+                        command.Parameters.AddWithValue("@Ammount", obj.Ammount);
+                        command.Parameters.AddWithValue("@PointsTaken", obj.PointsTaken);
+                        command.Parameters.AddWithValue("@DateOfEntry", obj.DateOfEntry);
+                        command.Parameters.AddWithValue("@ExpireDate", obj.ExpireDate);
+                        if (obj.PaidDate == null)
+                        {
+                            command.Parameters.AddWithValue("@PaidDate", DBNull.Value);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@PaidDate", obj.PaidDate);
+                        }
+                        command.Parameters.AddWithValue("@driverID", obj.driverID);
+                        command.Parameters.AddWithValue("@employeeID", obj.employeeID);
+                        command.Parameters.AddWithValue("@fineTypeID", obj.fineTypeID);
+                        recordID = (int)command.ExecuteScalar();
+                    }
+                }
+
+                return recordID;
+            }
+            else
+            {
+                XmlElement root = xmlDoc.DocumentElement;
+                XmlElement elem = xmlDoc.CreateElement("Record");
+
+                XmlElement id = xmlDoc.CreateElement("ID");
+                id.InnerText = freeID.ToString();
+                obj.ID = freeID;
+                freeID = freeID + 1;
+                elem.AppendChild(id);
+
+                XmlElement Ammount = xmlDoc.CreateElement("Ammount");
+                Ammount.InnerText = obj.Ammount.ToString();
+                elem.AppendChild(Ammount);
+
+                XmlElement PointsTaken = xmlDoc.CreateElement("PointsTaken");
+                PointsTaken.InnerText = obj.PointsTaken.ToString();
+                elem.AppendChild(PointsTaken);
+
+                XmlElement DateOfEntry = xmlDoc.CreateElement("DateOfEntry");
+                DateOfEntry.InnerText = obj.DateOfEntry.ToString();
+                elem.AppendChild(DateOfEntry);
+
+                XmlElement ExpireDate = xmlDoc.CreateElement("ExpireDate");
+                ExpireDate.InnerText = obj.ExpireDate.ToString();
+                elem.AppendChild(ExpireDate);
+
+                XmlElement PaidDate = xmlDoc.CreateElement("PaidDate");
+                PaidDate.InnerText = obj.PaidDate.ToString();
+                elem.AppendChild(PaidDate);
+
+                XmlElement driverID = xmlDoc.CreateElement("driverID");
+                driverID.InnerText = obj.driverID.ToString();
+                elem.AppendChild(driverID);
+
+                XmlElement employeeID = xmlDoc.CreateElement("employeeID");
+                employeeID.InnerText = obj.employeeID.ToString();
+                elem.AppendChild(employeeID);
+
+                XmlElement fineTypeID = xmlDoc.CreateElement("fineTypeID");
+                fineTypeID.InnerText = obj.fineTypeID.ToString();
+                elem.AppendChild(fineTypeID);
+
+                root.AppendChild(elem);
+                XMLSaveDocument();
+
+                return 1;
+            }
+                
         }
 
 
 
         public static int Update(Record obj)
         {
-            int ret = 0;
 
-            using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
+            if (Settings.DataProvider == DataProviderType.SqlServer)
             {
-                connection.Open();
+                int ret = 0;
 
-                SqlCommand command = new SqlCommand(SQL_UPDATE, connection);
-                command.Parameters.AddWithValue("@PaidDate", obj.PaidDate);
-                command.Parameters.AddWithValue("@ID", obj.ID);
+                using (SqlConnection connection = new SqlConnection(DBConnector.GetBuilder().ConnectionString))
+                {
+                    connection.Open();
 
-                ret = command.ExecuteNonQuery();
+                    SqlCommand command = new SqlCommand(SQL_UPDATE, connection);
+                    command.Parameters.AddWithValue("@PaidDate", obj.PaidDate);
+                    command.Parameters.AddWithValue("@ID", obj.ID);
+
+                    ret = command.ExecuteNonQuery();
+                }
+                return ret;
             }
-            return ret;
+            else
+            {
+                xmlDoc.Load(filePath);
+                XmlNode root = xmlDoc.DocumentElement;
+                XmlNodeList list = root.SelectNodes("Record");
+
+                XmlNode objNode = null;
+
+                foreach (XmlNode node in list)
+                {
+                    XmlNodeList childs = node.ChildNodes;
+
+                    foreach (XmlNode child in childs)
+                    {
+                        if (child.Name == "ID" && child.InnerText == obj.ID.ToString())
+                        {
+                            objNode = node;
+                            Console.WriteLine(objNode.InnerXml);
+                            break;
+                        }
+                    }
+
+                    if (objNode != null)
+                        break;
+                }
+
+                foreach (XmlNode child in objNode.ChildNodes)
+                {
+                    if (child.Name == "Ammount")
+                    {
+                        child.InnerText = obj.Ammount.ToString();
+                    }
+                    if (child.Name == "PointsTaken")
+                    {
+                        child.InnerText = obj.PointsTaken.ToString();
+                    }
+                    if (child.Name == "DateOfEntry")
+                    {
+                        child.InnerText = obj.DateOfEntry.ToString();
+                    }
+                    if (child.Name == "ExpireDate")
+                    {
+                        child.InnerText = obj.ExpireDate.ToString();
+                    }
+                    if (child.Name == "PaidDate")
+                    {
+                        child.InnerText = obj.PaidDate.ToString();
+                    }
+                    if (child.Name == "driverID")
+                    {
+                        child.InnerText = obj.driverID.ToString();
+                    }
+                    if (child.Name == "employeeID")
+                    {
+                        child.InnerText = obj.employeeID.ToString();
+                    }
+                    if (child.Name == "fineTypeID")
+                    {
+                        child.InnerText = obj.fineTypeID.ToString();
+                    }
+
+                }
+
+                XMLSaveDocument();
+
+                return 1;
+            }
+
         }
 
 
@@ -177,30 +363,6 @@ namespace ProjectVIS.DataLayer.DataMapper
 
 
 
-
-
-
-
-        // XML PART
-
-        private static int freeID = 0;
-        private static string filePath;
-        private static XmlDocument xmlDoc;
-
-        public static bool LoadXMLDocument(string path)
-        {
-            filePath = path;
-            xmlDoc = new XmlDocument();
-            xmlDoc.Load(filePath);
-
-            XmlNode root = xmlDoc.DocumentElement;
-            XmlNode freeIDNode = root.SelectSingleNode("freeID");
-
-            freeID = Convert.ToInt32(freeIDNode.InnerText);
-
-            return true;
-        }
-
         private static void XMLSaveDocument()
         {
             XmlNode root = xmlDoc.DocumentElement;
@@ -209,161 +371,7 @@ namespace ProjectVIS.DataLayer.DataMapper
 
             xmlDoc.Save(filePath);
         }
-
-        public static Record XMLSelect(int ID)
-        {
-            Record obj = new Record();
-
-            XmlNode root = xmlDoc.DocumentElement;
-            XmlNodeList list = root.SelectNodes("Driver");
-
-            XmlNode objNode = null;
-
-            foreach (XmlNode node in list)
-            {
-                XmlNodeList childs = node.ChildNodes;
-
-                foreach (XmlNode child in childs)
-                {
-                    if (child.Name == "ID")
-                    {
-                        objNode = (child.InnerText == ID.ToString()) ? node : null;
-                        break;
-                    }
-                }
-
-                if (objNode != null)
-                {
-                    break;
-                }
-            }
-
-            if (objNode != null)
-            {
-                obj = XMLMap(objNode);
-            }
-
-            return obj;
-        }
-
-        public static bool XMLInsert(Record obj)
-        {
-            XmlElement root = xmlDoc.DocumentElement;
-            XmlElement elem = xmlDoc.CreateElement("Record");
-
-            XmlElement id = xmlDoc.CreateElement("ID");
-            id.InnerText = freeID.ToString();
-            obj.ID = freeID;
-            freeID = freeID + 1;
-            elem.AppendChild(id);
-
-            XmlElement Ammount = xmlDoc.CreateElement("Ammount");
-            Ammount.InnerText = obj.Ammount.ToString();
-            elem.AppendChild(Ammount);
-
-            XmlElement PointsTaken = xmlDoc.CreateElement("PointsTaken");
-            PointsTaken.InnerText = obj.PointsTaken.ToString();
-            elem.AppendChild(PointsTaken);
-
-            XmlElement DateOfEntry = xmlDoc.CreateElement("DateOfEntry");
-            DateOfEntry.InnerText = obj.DateOfEntry.ToString();
-            elem.AppendChild(DateOfEntry);
-
-            XmlElement ExpireDate = xmlDoc.CreateElement("ExpireDate");
-            ExpireDate.InnerText = obj.ExpireDate.ToString();
-            elem.AppendChild(ExpireDate);
-
-            XmlElement PaidDate = xmlDoc.CreateElement("PaidDate");
-            PaidDate.InnerText = obj.PaidDate.ToString();
-            elem.AppendChild(PaidDate);
-
-            XmlElement driverID = xmlDoc.CreateElement("driverID");
-            driverID.InnerText = obj.driverID.ToString();
-            elem.AppendChild(driverID);
-
-            XmlElement employeeID = xmlDoc.CreateElement("employeeID");
-            employeeID.InnerText = obj.employeeID.ToString();
-            elem.AppendChild(employeeID);
-
-            XmlElement fineTypeID = xmlDoc.CreateElement("fineTypeID");
-            fineTypeID.InnerText = obj.fineTypeID.ToString();
-            elem.AppendChild(fineTypeID);
-
-            root.AppendChild(elem);
-            XMLSaveDocument();
-
-            return true;
-        }
-
-        public static bool XMLUpdate(Record obj)
-        {
-            xmlDoc.Load(filePath);
-            XmlNode root = xmlDoc.DocumentElement;
-            XmlNodeList list = root.SelectNodes("Record");
-
-            XmlNode objNode = null;
-
-            foreach (XmlNode node in list)
-            {
-                XmlNodeList childs = node.ChildNodes;
-
-                foreach (XmlNode child in childs)
-                {
-                    if (child.Name == "ID" && child.InnerText == obj.ID.ToString())
-                    {
-                        objNode = node;
-                        Console.WriteLine(objNode.InnerXml);
-                        break;
-                    }
-                }
-
-                if (objNode != null)
-                    break;
-            }
-
-            foreach (XmlNode child in objNode.ChildNodes)
-            {
-                if (child.Name == "Ammount")
-                {
-                    child.InnerText = obj.Ammount.ToString();
-                }
-                if (child.Name == "PointsTaken")
-                {
-                    child.InnerText = obj.PointsTaken.ToString();
-                }
-                if (child.Name == "DateOfEntry")
-                {
-                    child.InnerText = obj.DateOfEntry.ToString();
-                }
-                if (child.Name == "ExpireDate")
-                {
-                    child.InnerText = obj.ExpireDate.ToString();
-                }
-                if (child.Name == "PaidDate")
-                {
-                    child.InnerText = obj.PaidDate.ToString();
-                }
-                if (child.Name == "driverID")
-                {
-                    child.InnerText = obj.driverID.ToString();
-                }
-                if (child.Name == "employeeID")
-                {
-                    child.InnerText = obj.employeeID.ToString();
-                }
-                if (child.Name == "fineTypeID")
-                {
-                    child.InnerText = obj.fineTypeID.ToString();
-                }
-                
-            }
-
-            XMLSaveDocument();
-
-            return true;
-        }
-
-
+        
 
         public static Record XMLMap(XmlNode node)
         {

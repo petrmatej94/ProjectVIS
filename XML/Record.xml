@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Records>
-  <freeID>3</freeID>
+  <freeID>12</freeID>
   <Record>
     <ID>1</ID>
     <Ammount>2000</Ammount>
@@ -22,6 +22,114 @@
     <PaidDate>
     </PaidDate>
     <driverID>0</driverID>
+    <employeeID>1</employeeID>
+    <fineTypeID>6</fineTypeID>
+  </Record>
+  <Record>
+    <ID>3</ID>
+    <Ammount>2000</Ammount>
+    <PointsTaken>2</PointsTaken>
+    <DateOfEntry>13.12.2018 17:16:07</DateOfEntry>
+    <ExpireDate>12.01.2019 17:16:07</ExpireDate>
+    <PaidDate>
+    </PaidDate>
+    <driverID>0</driverID>
+    <employeeID>1</employeeID>
+    <fineTypeID>6</fineTypeID>
+  </Record>
+  <Record>
+    <ID>4</ID>
+    <Ammount>2000</Ammount>
+    <PointsTaken>2</PointsTaken>
+    <DateOfEntry>13.12.2018 17:17:22</DateOfEntry>
+    <ExpireDate>12.01.2019 17:17:22</ExpireDate>
+    <PaidDate>
+    </PaidDate>
+    <driverID>0</driverID>
+    <employeeID>1</employeeID>
+    <fineTypeID>6</fineTypeID>
+  </Record>
+  <Record>
+    <ID>5</ID>
+    <Ammount>5000</Ammount>
+    <PointsTaken>4</PointsTaken>
+    <DateOfEntry>13.12.2018 17:17:50</DateOfEntry>
+    <ExpireDate>12.01.2019 17:17:50</ExpireDate>
+    <PaidDate>
+    </PaidDate>
+    <driverID>0</driverID>
+    <employeeID>1</employeeID>
+    <fineTypeID>6</fineTypeID>
+  </Record>
+  <Record>
+    <ID>6</ID>
+    <Ammount>5000</Ammount>
+    <PointsTaken>4</PointsTaken>
+    <DateOfEntry>13.12.2018 17:22:24</DateOfEntry>
+    <ExpireDate>12.01.2019 17:22:24</ExpireDate>
+    <PaidDate>
+    </PaidDate>
+    <driverID>0</driverID>
+    <employeeID>1</employeeID>
+    <fineTypeID>6</fineTypeID>
+  </Record>
+  <Record>
+    <ID>7</ID>
+    <Ammount>5000</Ammount>
+    <PointsTaken>4</PointsTaken>
+    <DateOfEntry>13.12.2018 17:23:13</DateOfEntry>
+    <ExpireDate>12.01.2019 17:23:13</ExpireDate>
+    <PaidDate>
+    </PaidDate>
+    <driverID>0</driverID>
+    <employeeID>1</employeeID>
+    <fineTypeID>6</fineTypeID>
+  </Record>
+  <Record>
+    <ID>8</ID>
+    <Ammount>5000</Ammount>
+    <PointsTaken>4</PointsTaken>
+    <DateOfEntry>13.12.2018 17:26:51</DateOfEntry>
+    <ExpireDate>12.01.2019 17:26:51</ExpireDate>
+    <PaidDate>
+    </PaidDate>
+    <driverID>0</driverID>
+    <employeeID>1</employeeID>
+    <fineTypeID>6</fineTypeID>
+  </Record>
+  <Record>
+    <ID>9</ID>
+    <Ammount>5000</Ammount>
+    <PointsTaken>4</PointsTaken>
+    <DateOfEntry>13.12.2018 18:09:59</DateOfEntry>
+    <ExpireDate>12.01.2019 18:09:59</ExpireDate>
+    <PaidDate>
+    </PaidDate>
+    <driverID>0</driverID>
+    <employeeID>1</employeeID>
+    <fineTypeID>6</fineTypeID>
+  </Record>
+  <Record>
+    <ID>10</ID>
+    <Ammount>5000</Ammount>
+    <PointsTaken>4</PointsTaken>
+    <DateOfEntry>13.12.2018 18:57:39</DateOfEntry>
+    <ExpireDate>12.01.2019 18:57:39</ExpireDate>
+    <PaidDate>
+    </PaidDate>
+    <driverID>1</driverID>
+    <employeeID>1</employeeID>
+    <fineTypeID>6</fineTypeID>
+  </Record>
+  <Record>
+    <ID>11</ID>
+    <Ammount>5000</Ammount>
+    <PointsTaken>4</PointsTaken>
+    <DateOfEntry>13.12.2018 19:02:37</DateOfEntry>
+    <ExpireDate>12.01.2019 19:02:37</ExpireDate>
+    <PaidDate>
+    </PaidDate>
+    <driverID>1</driverID>
     <employeeID>1</employeeID>
     <fineTypeID>6</fineTypeID>
   </Record>
