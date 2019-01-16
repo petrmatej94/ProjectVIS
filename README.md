@@ -1,3 +1,7 @@
+# Project for subject Information System Development
+Project is divided into two parts - Desktop and Web application. The main focus of this subject was separating individual parts of SW into Three-tier (layer) architecture and also using Design Patterns. One of requirements was also using of two sources of data - SQL and XML, and possibility to switch between them.
+
+Details below were for my teacher.
 ## Desktop App
 - Folder *ProjectVIS*
 - 2 UC implemented 
